@@ -1,0 +1,412 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the bodyreswitcher package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: bodyreswitcher 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-12-27 17:33+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/main.cpp:125
+msgid "Critical error happened. Terminating the program."
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/errors.cpp:25
+msgid "%{#Message box title#}%Program error"
+msgstr ""
+
+#. some error during initialization
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/system.cpp:18
+msgid "Unable to initialize SDL2: "
+msgstr ""
+
+#. some error during initialization
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/system.cpp:28
+msgid "Unable to initialize SDL2 Image module: "
+msgstr ""
+
+#. some error during initialization
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/system.cpp:37
+msgid "Unable to initialize SDL2 Font module: "
+msgstr ""
+
+#. some error during initialization
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/system.cpp:47
+msgid "Unable to initialize SDL2 Mixer module: "
+msgstr ""
+
+#. some error
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/system.cpp:54
+msgid "Unable to open SDL2 audio system: "
+msgstr ""
+
+#. error?
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/system.cpp:93
+msgid "Unable to get available display modes on 1st monitor: "
+msgstr ""
+
+#. error?
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/system.cpp:101
+msgid "Unable to get information about %{#display#}%mode number %{num}%: "
+msgstr ""
+
+#. error?
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/system.cpp:126
+msgid "Unable to get information about desktop's display mode: "
+msgstr ""
+
+#. error?
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/window.cpp:37
+msgid "Unable to create a window: "
+msgstr ""
+
+#. error?
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/window.cpp:44
+msgid "Unable to get the surface from the window: "
+msgstr ""
+
+#. SDL_CreateRenderer( windowHandle, -1, SDL_RENDERER_ACCELERATED );
+#. error?
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/window.cpp:53
+msgid "Unable to create window renderer: "
+msgstr ""
+
+#. error on geting display mode
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/window.cpp:88
+msgid "Unable to get current display mode: "
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/window.cpp:123
+msgid "Can't change the fullscreen state: "
+msgstr ""
+
+#. error while changing mode
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/window.cpp:137
+msgid "Unable to change into display mode '%{mode_text}%': "
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/window.cpp:294
+msgid "Tried to move window surface"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/window.cpp:308
+msgid "Can't load file '%{filename}%': file doesn't exist"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/window.cpp:315
+msgid "Can't load file '%{filename}%':%{#SDL Image Error#}% "
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/window.cpp:351
+msgid "Tried to overwrite window surface"
+msgstr ""
+
+#. error?
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/window.cpp:378
+msgid "Unable to create a RGB Surface: "
+msgstr ""
+
+#. error?
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/window.cpp:391
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/window.cpp:470
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/window.cpp:516
+msgid "Unable to create a RGBA Surface: "
+msgstr ""
+
+#. error?
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/window.cpp:406
+msgid "Can't optimize surface: "
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/window.cpp:559
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/window.cpp:585
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/window.cpp:608
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/window.cpp:628
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/window.cpp:659
+msgid "Unable to draw with renderer: "
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/font.cpp:65
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/font.cpp:95
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/font.cpp:142
+msgid "Can't load font '%{filename}%': file doesn't exist"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/font.cpp:72
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/font.cpp:108
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/font.cpp:154
+msgid "Can't load font '%{filename}%' with size %{size}%pt: "
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/font.cpp:128
+msgid ""
+"Couldn't found a font to fit '%{text}%' into a %{width}%x%{height}% rectangle"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/font.cpp:173
+msgid "Couldn't find a font of the desired %{size}%px size"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/font.cpp:198
+msgid "Can't render the text '%{text}%': "
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/font.cpp:260
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/font.cpp:285
+msgid ""
+"Unable to fit the word %{wide_word}% into the desired %{max_width}%px size"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/sound.cpp:21
+msgid "Unable to load music file '%{filename}%': file doesn't exists"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/sound.cpp:28
+msgid "Unable to load music file '%{filename}%': "
+msgstr ""
+
+#. loop forever
+#. error?
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/sound.cpp:41
+msgid "Can't play the music: "
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/sound.cpp:70
+msgid "Unable to load sound file '%{filename}%': file doesn't exists"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/sound.cpp:77
+msgid "Unable to load sound file '%{filename}%': "
+msgstr ""
+
+#. sound can't be played
+#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/sound.cpp:93
+msgid "Unable to play sound: "
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/main_menu.cpp:129
+msgid "%{#Main menu#}%What it's about?"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/main_menu.cpp:130
+msgid "%{#Main menu#}%New game"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/main_menu.cpp:131
+msgid "%{#Main menu#}%Options"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/main_menu.cpp:132
+msgid "%{#Main menu#}%Exit"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/options_menu.cpp:20
+msgid "Music: On"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/options_menu.cpp:21
+msgid "Music: Off"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/options_menu.cpp:22
+msgid "Fullscreen: On"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/options_menu.cpp:23
+msgid "Fullscreen: Off"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/options_menu.cpp:24
+msgid "Set screen size"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/options_menu.cpp:25
+msgid "%{#Back to main menu#}%Back"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/screen_size_menu.cpp:22
+msgid "%{#Video modes list#}%<- Previous"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/screen_size_menu.cpp:23
+msgid "%{#Video modes list#}%Next ->"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/screen_size_menu.cpp:24
+msgid "%{#Video modes list#}%Cancel"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/about_screen.cpp:23
+msgid "%{#About screen#}%Back"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/about_screen.cpp:26
+msgid ""
+"One night The Crazy Professor made an amazing machine that gives one the "
+"ability to switch body with another person. Such an invention! Unfortunately "
+"he forgot to close his home and a bunch of kids entered his laboratory and "
+"started playing with his invention. What a mess! They switched their bodies "
+"and now they need You to make things right."
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/about_screen.cpp:33
+msgid ""
+"But The Crazy Profesor has return and has got bad news! He says two bodies "
+"that were switched now can't be switched back. Oh noes! But you have got an "
+"idea: what if we \"go around\" the problem and try to put back persons in in "
+"their right bodies by switching them with other bodies? That's the plan!"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/about_screen.cpp:41
+msgid ""
+"So, you became the last hope for those poor kids. Can you solve the puzzle "
+"and make them happy again?"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/new_game_menu.cpp:17
+msgid "%{#Game difficulty#}%Easy"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/new_game_menu.cpp:18
+msgid "%{#Game difficulty#}%Normal"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/new_game_menu.cpp:19
+msgid "%{#Game difficulty#}%Hard"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/new_game_menu.cpp:20
+msgid "%{#Close menu#}%Back"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:44
+msgid ""
+"%{# A '|' separated list of the first letters of kids' names. Must be 18 of "
+"them. #}%A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|R|S"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:65
+msgid "%{#1st kid name#}%Amelia"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:70
+msgid "%{#2nd kid name#}%Brooke"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:75
+msgid "%{#3rd kid name#}%Charlie"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:80
+msgid "%{#4th kid name#}%Daisy"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:85
+msgid "%{#5th kid name#}%Emily"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:90
+msgid "%{#6th kid name#}%Freddie"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:95
+msgid "%{#7th kid name#}%George"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:100
+msgid "%{#8th kid name#}%Harry"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:105
+msgid "%{#9th kid name#}%Isabel"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:110
+msgid "%{#10th kid name#}%Julia"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:115
+msgid "%{#11th kid name#}%Katie"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:120
+msgid "%{#12th kid name#}%Lilly"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:125
+msgid "%{#13th kid name#}%Matthew"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:130
+msgid "%{#14th kid name#}%Nancy"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:135
+msgid "%{#15th kid name#}%Oliver"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:140
+msgid "%{#16th kid name#}%Peter"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:145
+msgid "%{#17th kid name#}%Robert"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:150
+msgid "%{#18th kid name#}%Sophie"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:110
+msgid "You Won!"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:111
+msgid "You Lose!"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:161
+msgid ""
+"Undo\n"
+"(%{count}% left)"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:162
+msgid ""
+"Call for\n"
+"reinforcements"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:163
+msgid "End game"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:544
+msgid ""
+"%{#When selected one body#}%Switch %{firstKid}% (in %{firstBody}%'s body) "
+"with..."
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:551
+msgid "Unselect"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:557
+msgid ""
+"%{#When selected two bodies#}%Switch %{firstKid}% (in %{firstBody}%'s body) "
+"with %{secondKid}% (in %{secondBody}%'s body)"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:566
+msgid "Switching imposible!"
+msgstr ""
