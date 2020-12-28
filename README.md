@@ -4,7 +4,13 @@ One day a bunch of kids visits Crazy Professor's lab and
 have to clean that mess! But there is a catch: once two bodies
 have been switched they can't be switched back. Can you find the solution to this puzzle?
 
-# How to play
+## Releases
+Use below links to download releases you want:
+- [MS Windows ZIP file](https://github.com/felix-leg/bodyreswitcher/releases/download/v1.0/bodyreswitcher_mswin_build_1.0.zip) - unzip to any folder and start `bodyreswitcher.exe`
+- [Debian amd64 .deb package](https://github.com/felix-leg/bodyreswitcher/releases/download/v1.0/bodyreswitcher_1.0_amd64.deb) - use `dpkg -i` to install this package on you Debian (or any Debian-like) system
+- [Autoconf sources](https://github.com/felix-leg/bodyreswitcher/releases/download/v1.0/body-re-switcher-1.0.tar.gz) - untar the archive and run standard `./configure` → `make` → `make install` commands
+
+## How to play
 Once the game starts, choose the difficultly from the "New game" menu.
 
 Now you are presented with a graph showing kids initials and possible connections
