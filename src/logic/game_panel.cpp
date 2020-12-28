@@ -1,14 +1,14 @@
 /**
  * Module containing the "meat" of the game
 */
+//below to use M_PI constant
+#define _USE_MATH_DEFINES
+#include <cmath>
 
 #include "game_panel.hpp"
 #include "multimedia/font.hpp"
 #include "animation.hpp"
 #include "game_math/vector.hpp"
-//below to use M_PI constant
-#define _USE_MATH_DEFINES
-#include <cmath>
 #include <algorithm>
 #include <cstdlib>
 
