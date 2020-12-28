@@ -104,10 +104,12 @@ namespace game_logic {
 			isMenuActive = false;
 		});
 		nextButton.onClickHandler([this]() {
+			if( !displayNext ) return;//bug fix
 			++pageNumber;
 			setModeTexts();
 		});
 		prevButton.onClickHandler([this]() {
+			if( !displayPrev ) return;//bug fix
 			--pageNumber;
 			setModeTexts();
 		});

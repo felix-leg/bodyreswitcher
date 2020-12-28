@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bodyreswitcher 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-27 17:33+0100\n"
+"POT-Creation-Date: 2020-12-28 10:18+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -367,46 +367,46 @@ msgstr ""
 msgid "%{#18th kid name#}%Sophie"
 msgstr ""
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:110
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:117
 msgid "You Won!"
 msgstr ""
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:111
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:118
 msgid "You Lose!"
 msgstr ""
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:161
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:182
 msgid ""
 "Undo\n"
 "(%{count}% left)"
 msgstr ""
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:162
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:183
 msgid ""
 "Call for\n"
 "reinforcements"
 msgstr ""
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:163
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:184
 msgid "End game"
 msgstr ""
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:544
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:565
 msgid ""
 "%{#When selected one body#}%Switch %{firstKid}% (in %{firstBody}%'s body) "
 "with..."
 msgstr ""
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:551
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:572
 msgid "Unselect"
 msgstr ""
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:557
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:578
 msgid ""
 "%{#When selected two bodies#}%Switch %{firstKid}% (in %{firstBody}%'s body) "
 "with %{secondKid}% (in %{secondBody}%'s body)"
 msgstr ""
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:566
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:587
 msgid "Switching imposible!"
 msgstr ""

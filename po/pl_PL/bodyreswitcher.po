@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bodyreswitcher 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-27 17:33+0100\n"
+"POT-Creation-Date: 2020-12-28 10:18+0100\n"
 "PO-Revision-Date: 2020-12-27 17:35+0100\n"
 "Last-Translator: Przemysław Chojnacki <felix.leg@gmail.com>\n"
 "Language-Team: Polish\n"
@@ -388,15 +388,15 @@ msgstr "Rober%{+C:t,ta,towi,ta,tem,cie,cie}%"
 msgid "%{#18th kid name#}%Sophie"
 msgstr "Sar%{+C:a,y,ze,ę,ą,ze,o}%"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:110
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:117
 msgid "You Won!"
 msgstr "Wygrałeś!"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:111
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:118
 msgid "You Lose!"
 msgstr "Przegrałeś!"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:161
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:182
 msgid ""
 "Undo\n"
 "(%{count}% left)"
@@ -404,7 +404,7 @@ msgstr ""
 "Cofinij\n"
 "(pozostał%{count!P:a,y,o}% %{count}% prób%{count!P:a,y,}%)"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:162
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:183
 msgid ""
 "Call for\n"
 "reinforcements"
@@ -412,21 +412,21 @@ msgstr ""
 "Wezwij\n"
 "posiłki"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:163
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:184
 msgid "End game"
 msgstr "Zakończ"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:544
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:565
 msgid ""
 "%{#When selected one body#}%Switch %{firstKid}% (in %{firstBody}%'s body) "
 "with..."
 msgstr "Zamień %{firstKid!C=acc}% (w ciele %{firstBody!C=gen}%) z..."
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:551
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:572
 msgid "Unselect"
 msgstr "Odznacz"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:557
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:578
 msgid ""
 "%{#When selected two bodies#}%Switch %{firstKid}% (in %{firstBody}%'s body) "
 "with %{secondKid}% (in %{secondBody}%'s body)"
@@ -434,6 +434,6 @@ msgstr ""
 "Zamień %{firstKid!C=acc}% (w ciele %{firstBody!C=gen}%) z %{secondKid!"
 "C=ins}% (w ciele %{secondBody!C=gen}%)"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:566
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:587
 msgid "Switching imposible!"
 msgstr "Zamiana ciał niemożliwa!"
