@@ -147,6 +147,7 @@ namespace game_logic {
 	void Game::initializeGame(multimedia::Surface &destSurf) {
 		controlPane.undoLeft = theGraph.getSize() / 3;
 		if( controlPane.undoLeft < 3 ) controlPane.undoLeft = 3;
+		controlPane.undoList.clear();
 		controlPane.canAdd = true;
 		gameState = GAME_GO;
 		
