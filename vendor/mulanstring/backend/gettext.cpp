@@ -21,8 +21,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include <libintl.h>
 #include <locale.h>
 
-#include <cstring>
-
 namespace mls::backend {
 	
 	void init(const char* packageName, const char* wantedLocale, const char* folderLookup) {
@@ -37,10 +35,6 @@ namespace mls::backend {
 		bind_textdomain_codeset(packageName, "utf-8");
 		
 		textdomain(packageName);
-		//Temporal fix! 
-		if( std::strcmp(theLocale,"Polish_Poland.1250") == 0 ) {
-			theLocale = "pl_PL";
-		}
 		
 		mls::initLocale(theLocale);
 	}

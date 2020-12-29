@@ -41,6 +41,7 @@ namespace mls {
 	
 	
 	class Template; 
+	 
 
 	class TemplateElement {
 		public:
@@ -48,6 +49,7 @@ namespace mls {
 			virtual TemplateElement* copy() = 0;
 	};
 	
+	 
 
 	class StringTemplateElement : public TemplateElement {
 		public:
@@ -59,6 +61,7 @@ namespace mls {
 			StringTemplateElement(std::string other);
 	};
 	
+	 
 
 	class SubstitutionTemplateElement : public TemplateElement {
 		public:
@@ -69,6 +72,7 @@ namespace mls {
 			std::string valueName;
 	};
 	
+	 
 
 	class CaseSetterElement : public TemplateElement   {
 		public:
@@ -81,6 +85,7 @@ namespace mls {
 			std::string caseName = "";
 	};
 	
+	 
 
 	class CaseWriterElement : public TemplateElement {
 		public:
@@ -91,6 +96,7 @@ namespace mls {
 			std::map<std::string,std::string> params;
 	};
 	
+	 
 
 	class GenderWriterElement : public TemplateElement {
 		public:
@@ -102,6 +108,7 @@ namespace mls {
 			std::string variableName;
 	};
 	
+	 
 
 	class PluralWriterElement : public TemplateElement {
 		public:
@@ -113,6 +120,7 @@ namespace mls {
 			std::string variableName;
 	};
 	
+	 
 
 	class Template {
 		public:

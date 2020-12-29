@@ -27,7 +27,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 namespace mls {
 	
 	struct Feature {
-			const char* langName;
+			const char* langName; 
 			const char* decimalSeparator;
 			const char* thousandsSeparator;
 			

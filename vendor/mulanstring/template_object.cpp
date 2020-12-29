@@ -168,6 +168,7 @@ namespace mls {
 		}
 	}
 	
+	 
 
 	std::map<std::string,std::string> Template::convertTableToMap(std::vector<std::string> &table, const char* replacementList) {
 		std::map<std::string,std::string> paramsMap;
@@ -179,6 +180,7 @@ namespace mls {
 	}
 			
 	
+	 
 
 	TemplateElement* Template::makeFunction(std::string name, FunctArgsBase* arguments, std::string varName) {
 		

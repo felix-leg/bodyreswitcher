@@ -84,6 +84,7 @@ namespace mls {
 	
 	
 	
+	 
 
 	class BasicTagParser {
 		public:
@@ -171,6 +172,7 @@ namespace mls {
 			std::string& str;
 			std::size_t cPos;
 			
+			 
 
 			#ifdef CAN_USE_STARTS_ENDS_WITH
 			std::string_view toBeParsedAsSV() {
@@ -178,6 +180,7 @@ namespace mls {
 			}
 			#endif
 			
+			 
 
 			void advance(std::size_t howMuch = 1) {
 				cPos += howMuch;
@@ -199,6 +202,7 @@ namespace mls {
 				return pos == cPos;
 				#endif
 			}
+			 
 
 			template<class ReturnType>
 			ReturnType* parseFunctionAndArgs() {
@@ -219,6 +223,7 @@ namespace mls {
 				ReturnType* returnValue = new ReturnType(functionName);
 				
 				try{
+					 
 
 					switch( viewed() ) {
 						case '=': 

@@ -126,13 +126,14 @@ const char * PluralRule9(long numberAsInt, std::string numberAsString) {
 
 
 
-#define LF(name,dSep,tSep,pluralFun,cases,genders,plurals) \
-	{ std::string(name) , mls::Feature{name,dSep,tSep,pluralFun,cases,genders,plurals}}
+#define LF(ownName,name,dSep,tSep,pluralFun,cases,genders,plurals) \
+	{ std::string(ownName) , mls::Feature{name,dSep,tSep,pluralFun,cases,genders,plurals}}
 
 std::map<std::string, mls::Feature> mls::FeaturesByLang = {
-	LF("en_GB",".",",",PluralRule1,"","","one;other"),
-	LF("en_US",".",",",PluralRule1,"","","one;other"),
-	LF("pl_PL",","," ",PluralRule9,
+	LF("British English","en_GB",".",",",PluralRule1,"","","one;other"),
+	LF("American English","en_US",".",",",PluralRule1,"","","one;other"),
+	LF("Polski","pl_PL;Polish_Poland",","," ",PluralRule9,
+	 
 
 	"nom;gen;dat;acc;ins;loc;voc","m;f;n","one;few;other")
 	
