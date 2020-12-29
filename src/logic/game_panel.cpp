@@ -148,7 +148,8 @@ namespace game_logic {
 		controlPane.undoLeft = theGraph.getSize() / 3;
 		if( controlPane.undoLeft < 3 ) controlPane.undoLeft = 3;
 		controlPane.undoList.clear();
-		controlPane.canAdd = true;
+		controlPane.undoButton.enabled = true;
+		controlPane.add2Button.enabled = true;
 		gameState = GAME_GO;
 		
 		ownRedrawFlag = mainWindow->redrawFlag - 3;
@@ -164,7 +165,7 @@ namespace game_logic {
 			return;
 		}
 		
-		if( controlPane.canAdd == false && controlPane.undoLeft == 0 && theGraph.isUnwinable() ) {
+		if( controlPane.add2Button.enabled == false && controlPane.undoLeft == 0 && theGraph.isUnwinable() ) {
 			gameState = GAME_LOSE;
 			return;
 		}
@@ -185,7 +186,6 @@ namespace game_logic {
 	infoTextSurface(nullptr),
 	infoTextRect(0,0,0,0) {
 		undoLeft = 0;
-		canAdd = true;
 		clickSpace = nullptr;
 		endGameEvent = nullptr;
 	}
@@ -195,8 +195,8 @@ namespace game_logic {
 	}
 	
 	void RightPane::paint(multimedia::Surface &destSurf) {
-		if(undoLeft > 0) undoButton.paint(destSurf);
-		if(canAdd) add2Button.paint(destSurf);
+		undoButton.paint(destSurf);
+		add2Button.paint(destSurf);
 		endGameButton.paint(destSurf);
 		//text surface
 		destSurf.blit(infoTextRect.getLeft(), infoTextRect.getTop(), infoTextSurface);
@@ -263,7 +263,7 @@ namespace game_logic {
 		//setup buttons
 		add2Button.assignEvents();
 		add2Button.onClickHandler([this](){
-			canAdd = false;
+			add2Button.enabled = false;
 			top->theGraph.add2ExtraPeople();
 			top->graphPane.reallocateElements();
 		});
@@ -282,6 +282,8 @@ namespace game_logic {
 			--undoLeft;
 			
 			undoButton.setText(undoText.apply("count",undoLeft).get());
+			
+			if( undoLeft == 0 ) undoButton.enabled = false;
 		});
 		
 		//position buttons and text

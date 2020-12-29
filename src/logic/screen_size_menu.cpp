@@ -60,13 +60,12 @@ namespace game_logic {
 			ownRedrawFlag = theWindow->redrawFlag;
 		}
 		//draw buttons
-		if( displayNext ) nextButton.paint(destSurf);
-		if( displayPrev ) prevButton.paint(destSurf);
+		nextButton.paint(destSurf);
+		prevButton.paint(destSurf);
 		cancelButton.paint(destSurf);
-		for(std::size_t modeNo = 0; modeNo < displayModes.size(); ++modeNo) {
-			if( displayModes[modeNo] ) {
-				modeButtons[modeNo].paint(destSurf);
-			}
+		
+		for(auto& modeButton : modeButtons ) {
+			modeButton.paint(destSurf);
 		}
 	}
 	
@@ -104,12 +103,10 @@ namespace game_logic {
 			isMenuActive = false;
 		});
 		nextButton.onClickHandler([this]() {
-			if( !displayNext ) return;//bug fix
 			++pageNumber;
 			setModeTexts();
 		});
 		prevButton.onClickHandler([this]() {
-			if( !displayPrev ) return;//bug fix
 			--pageNumber;
 			setModeTexts();
 		});
@@ -135,22 +132,22 @@ namespace game_logic {
 	///sets texts on mode buttons
 	void ScreenSizeMenu::setModeTexts() {
 		std::size_t modeIndex = pageNumber * modesPerPage;
-		if( pageNumber == 0 ) displayPrev = false;
-		else displayPrev = true;
+		if( pageNumber == 0 ) prevButton.enabled = false;
+		else prevButton.enabled = true;
 		
 		//write text on buttons (we are going backwards because the bottomest button is the first)
 		for(auto no = modeButtons.size(); no > 0; --no) {
 			if( modeIndex < videoModes.size() ) {
-				displayModes[no-1] = true;
+				modeButtons[no-1].enabled = true;
 				modeButtons[no-1].setText( videoModes[modeIndex].to_string() );
 			} else {
-				displayModes[no-1] = false;
+				modeButtons[no-1].enabled = false;
 			}
 			++modeIndex;
 		}
 		
-		if( modeIndex >= videoModes.size() ) displayNext = false;
-		else displayNext = true;
+		if( modeIndex >= videoModes.size() ) nextButton.enabled = false;
+		else nextButton.enabled = true;
 	}
 	
 	///switches video mode from button click

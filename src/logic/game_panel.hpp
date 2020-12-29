@@ -47,7 +47,7 @@ namespace game_logic {
 			
 			unsigned int undoLeft;
 			std::deque<std::pair<unsigned int,unsigned int>> undoList;
-			bool canAdd;
+			//bool canAdd;
 			
 			ButtonTemplate buttonTempl;
 			UI::Space * clickSpace;

@@ -78,7 +78,8 @@ namespace game_logic {
 	=========================== Button class
 	*/
 
-	Button::Button(std::string textOnButton, ButtonTemplate* templ, UI::Space* clickSpace) {
+	Button::Button(std::string textOnButton, ButtonTemplate* templ, UI::Space* clickSpace):
+	enabled(true), onClick(nullptr) {
 		buttonTempl = templ;
 		
 		if( templ == nullptr || clickSpace == nullptr ) return;
@@ -142,37 +143,18 @@ namespace game_logic {
 			isMouseOver = false;
 		});
 		clickable->addClickListener([this]() {
+			if( !enabled ) return;
+			
 			buttonTempl->beepSound.play();
+			if( onClick != nullptr ) onClick();
 		});
 	}
 	
 	void Button::onClickHandler(std::function<void()> callback) {
 		if( callback == nullptr ) return;
-		clickable->addClickListener(callback);
+		onClick = callback;
 	}
-	/*
-	Button& Button::operator=(Button&& other) {
-		if( this == &other) return *this;
-		
-		std::cout << "Move operator" << std::endl;
-		buttonTempl = other.buttonTempl;
-		activeTextSurf = std::move(other.activeTextSurf);
-		inactiveTextSurf = std::move(other.inactiveTextSurf);
-		position = other.position;
-		activeTextPos = other.activeTextPos;
-		inactiveTextPos = other.inactiveTextPos;
-		clickable = other.clickable; other.clickable = nullptr;
-		
-		//redo the catchers
-		clickable->addMouseEnterListener([this]() {
-			isMouseOver = true;
-		});
-		clickable->addMouseLeaveListener([this]() {
-			isMouseOver = false;
-		});
-		
-		return *this;
-	}//*/
+	
 	
 	void Button::setPosition(int x, int y, bool isCenter) {
 		if( isCenter ) {
@@ -190,7 +172,8 @@ namespace game_logic {
 	}
 	
 	void Button::paint(multimedia::Surface& destSurf) {
-		//std::cout << "Is mouse over? " << std::boolalpha << isMouseOver << std::endl;
+		if( !enabled ) return;
+		
 		if( isMouseOver ) {
 			destSurf.blit(position.getLeft(), position.getTop(), buttonTempl->activeSurf);
 			destSurf.blit(activeTextPos.getLeft(), 

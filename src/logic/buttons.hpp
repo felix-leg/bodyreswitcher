@@ -65,6 +65,8 @@ namespace game_logic {
 			void setPosition(int x, int y, bool isCenter);
 			void setText(std::string newText);
 			void paint(multimedia::Surface& destSurf);
+			
+			bool enabled;
 		private:
 			ButtonTemplate *buttonTempl;
 			multimedia::Surface activeTextSurf;
@@ -74,6 +76,7 @@ namespace game_logic {
 			Rect inactiveTextPos;
 			UI::Component *clickable;
 			bool isMouseOver = false;
+			std::function<void()> onClick;
 	};//end class Button
 	
 }//end namespace game_logic

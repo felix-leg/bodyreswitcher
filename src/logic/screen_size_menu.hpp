@@ -47,9 +47,6 @@ namespace game_logic {
 			void setModeTexts();
 			void switchModeToIndex(std::size_t index);
 			std::array<Button, modesPerPage> modeButtons;
-			bool displayPrev = false;
-			bool displayNext = false;
-			std::array<bool, modesPerPage> displayModes;
 			
 			std::string prevText;
 			std::string nextText;
