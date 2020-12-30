@@ -27,3 +27,20 @@ Except switching bodies, you can also do two other things:
 - **Call for reinforcements** adds 2 extra people to the graph in their own bodies.
 - **Undo** gives you the ability to undo last *n* switches you have made. Unfortunately there is 
 a limit of how many times you can do this.
+
+## Licences
+
+### Source code
+Source code in the `src/` directory are licenced under GPL 3.0
+
+### Graphics and music
+All graphics and sound (`*.png` and `*.ogg` files in the `data/` directory)
+are licenced under **Creative Commons BY-NC-SA 4.0** with the following attribution:
+Copyright 2020, Przemysław Chojnacki
+
+<img src="data/CC-BY-NC-SA.svg?raw=true" alt="CC BY-NC-SA logo" width="125">
+
+### Fonts
+* *Jura-Regular.ttf* is licensed under the [SIL Open Font License, Version 1.1.](http://scripts.sil.org/OFL)
+Copyright 2016 The Jura Font Project Authors (daniel@danieljohnson.name)
+* *SpecialElite-Regular.ttf* is licenced under [Apache License Version 2.0, January 2004.](http://www.apache.org/licenses/LICENSE-2.0)
