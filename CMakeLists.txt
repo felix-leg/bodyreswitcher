@@ -19,6 +19,30 @@ find_package(SDL2_gfx REQUIRED)
 find_package(SDL2_ttf REQUIRED)
 
 #the source list
+# set(BRS_sources src/main.cpp
+# 				src/filesystem.cpp
+# 				src/animation.cpp
+# 				src/rect.cpp
+# 				src/ui.cpp
+# 				src/game_config.cpp
+# 				src/errors.cpp
+# 				src/mls.cpp
+# 				src/multimedia/system.cpp
+# 				src/multimedia/base.cpp
+# 				src/multimedia/window.cpp
+# 				src/multimedia/font.cpp
+# 				src/multimedia/sound.cpp
+# 				src/logic/layer.cpp
+# 				src/logic/buttons.cpp
+# 				src/logic/main_menu.cpp
+# 				src/logic/options_menu.cpp
+# 				src/logic/screen_size_menu.cpp
+# 				src/logic/about_screen.cpp
+# 				src/logic/new_game_menu.cpp
+# 				src/logic/person_graph.cpp
+# 				src/logic/game_panel.cpp
+# 				src/game_math/vector.cpp
+# )
 set(BRS_sources src/main.cpp
 				src/filesystem.cpp
 				src/animation.cpp
@@ -29,19 +53,21 @@ set(BRS_sources src/main.cpp
 				src/mls.cpp
 				src/multimedia/system.cpp
 				src/multimedia/base.cpp
-				src/multimedia/window.cpp
+				src/multimedia/graphics.cpp
 				src/multimedia/font.cpp
 				src/multimedia/sound.cpp
-				src/logic/layer.cpp
+				src/game_math/vector.cpp
+				src/logic/common.cpp
+				src/logic/module.cpp
 				src/logic/buttons.cpp
+				src/logic/main_menu_background.cpp
 				src/logic/main_menu.cpp
+				src/logic/about_menu.cpp
 				src/logic/options_menu.cpp
 				src/logic/screen_size_menu.cpp
-				src/logic/about_screen.cpp
 				src/logic/new_game_menu.cpp
-				src/logic/person_graph.cpp
 				src/logic/game_panel.cpp
-				src/game_math/vector.cpp
+				src/logic/person_graph.cpp
 )
 
 add_executable(bodyreswitcher ${BRS_sources})

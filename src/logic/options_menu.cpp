@@ -1,133 +1,120 @@
 /**
- * Provides the Options menu for the main menu.
+ * Menu for selecting options like music, fullscreen, and screen size
 */
 
 #include "options_menu.hpp"
+#include "buttons.hpp"
+#include <string>
 #include "mls.hpp"
-
+#include "common.hpp"
 
 namespace game_logic {
 	
-	OptionsMenu::OptionsMenu(multimedia::Window *mainWindow, multimedia::Music *music):
-		theWindow(mainWindow),
-		mainMusic(music),
-		isMenuActive(false),
-		buttonTempl("MenuButton_active.png","MenuButton_inactive.png",
-		MenuButtonWidthPercent, MenuButtonHeightPercent) {
-			ownRedrawFlag = theWindow->redrawFlag * -1;//* -1 => to force redraw
+	namespace options_menu {
+		
+		//music
+		multimedia::Music *theMusic;
+		//the menu
+		Menu *theMenu = nullptr;
+		std::string musicOnText, musicOffText, 
+					fullscreenOnText, fullscreenOffText, 
+					screenSizeText, backText;
+		Button *musicButton = nullptr;
+		Button *fullscreenButton = nullptr;
+		Button *screenSizeButton = nullptr;
+		Button *backButton = nullptr;
+		
+		//drawing functions
+		multimedia::Window *theWindow;
+		multimedia::DirtyFlag *repaintFlag;
+		void makeMenu();
+		void paint(multimedia::Surface &destSurf) {
+			if( repaintFlag->needsRedraw() ) {
+				makeMenu();
+			}
+			if( musicButton != nullptr ) musicButton->paint(destSurf);
+			if( fullscreenButton != nullptr ) fullscreenButton->paint(destSurf);
+			if( screenSizeButton != nullptr ) screenSizeButton->paint(destSurf);
+			if( backButton != nullptr ) backButton->paint(destSurf);
+		}
+		
+		void makeMenu() {
+			if( theMenu != nullptr ) delete theMenu;
 			
-			clickSpace = nullptr;
-			musicOnText = _("Music: On").get();
-			musicOffText = _("Music: Off").get();
-			fullscreenOnText = _("Fullscreen: On").get();
-			fullscreenOffText = _("Fullscreen: Off").get();
-			screenSizeText = _("Set screen size").get();
-			backText = _("%{#Back to main menu#}%Back").get();
+			theMenu = new Menu(theWindow, {
+				( theMusic->isPlaying() ? musicOnText : musicOffText ),
+				( theWindow->isFullscreen() ? fullscreenOnText : fullscreenOffText ),
+				screenSizeText,
+				backText
+			},{
+				musicOnText, 
+				musicOffText, 
+				fullscreenOnText, 
+				fullscreenOffText, 
+				screenSizeText, 
+				backText
+			});
 			
-			theLongestText = multimedia::getTheLongestString({
-				musicOnText, musicOffText, fullscreenOnText, fullscreenOffText,
-				screenSizeText, backText
+			musicButton = theMenu->getButton(0);
+			fullscreenButton = theMenu->getButton(1);
+			screenSizeButton = theMenu->getButton(2);
+			backButton = theMenu->getButton(3);
+			
+			musicButton->onClickHandler([](){
+				if( theMusic->isPlaying() ) {
+					theMusic->stop();
+					musicButton->setText( musicOffText );
+				} else {
+					theMusic->play();
+					musicButton->setText( musicOnText );
+				}
+			});
+			
+			fullscreenButton->onClickHandler([](){
+				theWindow->switchFullscreen();
+				if( theWindow->isFullscreen() ) {
+					fullscreenButton->setText( fullscreenOnText );
+				} else {
+					fullscreenButton->setText( fullscreenOffText );
+				}
+			});
+			
+			screenSizeButton->onClickHandler([](){
+				theGameState = GameState::ScreenMenu;
+			});
+			
+			backButton->onClickHandler([](){
+				theGameState = GameState::MainMenu;
 			});
 		}
-	
-	OptionsMenu::~OptionsMenu() {
-		if( clickSpace != nullptr ) delete clickSpace;
-	}
-	
-	bool OptionsMenu::isActive() {
-		return isMenuActive;
-	}
-	///activates the menu
-	void OptionsMenu::enable() {
-		isMenuActive = true;
-	}
-	
-	void OptionsMenu::mouseOver(int mouseX, int mouseY) {
-		if( clickSpace != nullptr ) clickSpace->mouseMovedTo(mouseX, mouseY);
-	}
-	
-	void OptionsMenu::mouseClick() {
-		if( clickSpace != nullptr ) clickSpace->mouseClick();
-	}
-	
-	void OptionsMenu::setScreenSizeEvent(std::function<void()> callback) {
-		screenSizeEvent = callback;
-	}
-	
-	void OptionsMenu::paint(multimedia::Surface& destSurf) {
-		//check if we have to redraw our assets
-		if( ownRedrawFlag != theWindow->redrawFlag ) {
-			makeButtons();
-			//assets ready — set the flag
-			ownRedrawFlag = theWindow->redrawFlag;
+		
+		void mouseAction(int mouseX, int mouseY, bool mouseClick) {
+			if( theMenu == nullptr ) return;
+			theMenu->mouseActions(mouseX, mouseY, mouseClick);
 		}
-		//draw buttons
-		backButton.paint(destSurf);
-		fullscreenButton.paint(destSurf);
-		musicButton.paint(destSurf);
-		screenSizeButton.paint(destSurf);
-	}
+		
+		void unloadModule() {
+			delete theMenu;
+		}
+		
+	}//end namespace options_menu
 	
-	void OptionsMenu::makeButtons() {
-		constexpr int buttonSpacing = 5;//button spacing in pixels
+	Module OptionsMenuInit(multimedia::Window *mainWindow, multimedia::Music *mainMusic) {
+		using namespace options_menu;
 		
-		//parameters for button template
-		int totalButtonsHeight = theWindow->getHeight() * 0.4;
-		int standardButtonHeight = (totalButtonsHeight / 4) - buttonSpacing;
-		int theBottomButtonPosition = (theWindow->getHeight() * 0.7) - standardButtonHeight/2;
-		buttonTempl.reloadAssetsForParametersH(standardButtonHeight, theLongestText);
+		theWindow = mainWindow;
+		theMusic = mainMusic;
+		repaintFlag = mainWindow->createDirtyFlag();
 		
-		//make buttons
-		if( clickSpace != nullptr ) delete clickSpace;
-		clickSpace = new UI::Space(0,0,theWindow->getWidth(),theWindow->getHeight());
+		musicOnText = _("Music: On").get();
+		musicOffText = _("Music: Off").get();
+		fullscreenOnText = _("Fullscreen: On").get();
+		fullscreenOffText = _("Fullscreen: Off").get();
+		screenSizeText = _("Set screen size").get();
+		backText = _("%{#Back to main menu#}%Back").get();
 		
-		backButton = buttonTempl.makeButton(backText, clickSpace);
-		fullscreenButton = buttonTempl.makeButton(
-			(theWindow->isFullscreen()) ? fullscreenOnText : fullscreenOffText
-			, clickSpace);
-		musicButton = buttonTempl.makeButton(
-			(mainMusic->isPlaying()) ? musicOnText : musicOffText
-			, clickSpace
-		);
-		screenSizeButton = buttonTempl.makeButton( screenSizeText, clickSpace );
-		
-		backButton.assignEvents();
-		backButton.onClickHandler([this]() {
-			isMenuActive = false;
-		});
-		fullscreenButton.assignEvents();
-		fullscreenButton.onClickHandler([this](){
-			theWindow->switchFullscreen();
-		});
-		musicButton.assignEvents();
-		musicButton.onClickHandler([this]() {
-			if( mainMusic->isPlaying() ) {
-				mainMusic->stop(100);
-				musicButton.setText( musicOffText );
-			} else {
-				mainMusic->play();
-				musicButton.setText( musicOnText );
-			}
-		});
-		screenSizeButton.assignEvents();
-		screenSizeButton.onClickHandler( screenSizeEvent );
-		
-		//position the buttons
-		int posX = theWindow->getWidth() / 2;
-		int posY = theBottomButtonPosition;
-		//--back
-		backButton.setPosition(posX, posY, true);
-		posY -= standardButtonHeight + buttonSpacing;
-		//--screen size
-		screenSizeButton.setPosition(posX, posY, true);
-		posY -= standardButtonHeight + buttonSpacing;
-		//--fullscreen state
-		fullscreenButton.setPosition(posX, posY, true);
-		posY -= standardButtonHeight + buttonSpacing;
-		//--music state
-		musicButton.setPosition(posX, posY, true);
+		return Module(unloadModule);
 	}
-	
 	
 }//end namespace game_logic
 

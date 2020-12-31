@@ -3,7 +3,7 @@
 #ifndef MULTIMEDIA_FONT_HPP
 #define MULTIMEDIA_FONT_HPP
 
-#include "window.hpp"
+#include "graphics.hpp"
 #include "rect.hpp"
 #include <SDL_ttf.h>
 #include <string>

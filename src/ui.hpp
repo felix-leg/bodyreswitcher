@@ -9,7 +9,7 @@
 
 
 #ifdef CMAKE_DEBUG
-#include <multimedia/window.hpp>
+#include <multimedia/graphics.hpp>
 #endif
 
 namespace UI {

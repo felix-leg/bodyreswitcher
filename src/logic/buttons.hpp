@@ -3,7 +3,7 @@
 #ifndef LOGIC_BUTTONS_HPP
 #define LOGIC_BUTTONS_HPP
 
-#include "multimedia/window.hpp"
+#include "multimedia/graphics.hpp"
 #include "multimedia/font.hpp"
 #include "multimedia/sound.hpp"
 #include "rect.hpp"
@@ -40,7 +40,7 @@ namespace game_logic {
 			void reloadAssetsForParametersH(int buttonHeight, std::string theLongestString);
 			int reloadAssetsForParametersW(int buttonWidth, std::string theLongestString);
 			
-			Button makeButton(std::string textOnButton, UI::Space* clickSpace);
+			Button* makeButton(std::string textOnButton, UI::Space* clickSpace);
 			multimedia::Font drawingFont;
 		private:
 			std::string activeFile;
@@ -78,6 +78,22 @@ namespace game_logic {
 			bool isMouseOver = false;
 			std::function<void()> onClick;
 	};//end class Button
+	
+	class Menu {
+		public:
+			Menu(multimedia::Window *theWindow, 
+				std::initializer_list<std::string> textsOnButtons,
+				std::initializer_list<std::string> possibleText = {});
+			~Menu();
+			
+			Button* getButton(unsigned int index);
+			
+			void mouseActions(int mouseX, int mouseY, bool mouseClick);
+		private:
+			ButtonTemplate templ;
+			std::vector<Button*> buttons;
+			UI::Space *clickSpace;
+	};//end class Menu
 	
 }//end namespace game_logic
 

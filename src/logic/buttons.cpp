@@ -70,8 +70,8 @@ namespace game_logic {
 		return buttonHeight;
 	}
 	
-	Button ButtonTemplate::makeButton(std::string textOnButton, UI::Space *clickSpace) {
-		return Button(textOnButton, this, clickSpace);
+	Button* ButtonTemplate::makeButton(std::string textOnButton, UI::Space *clickSpace) {
+		return new Button(textOnButton, this, clickSpace);
 	}
 	
 	/*
@@ -108,6 +108,8 @@ namespace game_logic {
 		
 		clickable = clickSpace->newComponent(position.inflate(-5));
 	}
+	
+	
 	
 	void Button::setText(std::string newText) {
 		if( newText.find("\n") != std::string::npos ) {
@@ -175,17 +177,74 @@ namespace game_logic {
 		if( !enabled ) return;
 		
 		if( isMouseOver ) {
-			destSurf.blit(position.getLeft(), position.getTop(), buttonTempl->activeSurf);
-			destSurf.blit(activeTextPos.getLeft(), 
-				activeTextPos.getTop(), activeTextSurf);
+			destSurf.blit(position, buttonTempl->activeSurf);
+			destSurf.blit(activeTextPos, activeTextSurf);
 		} else {
-			destSurf.blit(position.getLeft(), position.getTop(), buttonTempl->inactiveSurf);
-			destSurf.blit(inactiveTextPos.getLeft(), 
-				inactiveTextPos.getTop(), inactiveTextSurf);
+			destSurf.blit(position, buttonTempl->inactiveSurf);
+			destSurf.blit(inactiveTextPos, inactiveTextSurf);
 		}
 		#ifdef CMAKE_DEBUG
 		clickable->paintMarkers(destSurf);
 		#endif
+	}
+	
+	/*
+	=========================== Menu class
+	*/
+	
+	Menu::Menu(multimedia::Window *theWindow, 
+		std::initializer_list<std::string> textsOnButtons,
+		std::initializer_list<std::string> possibleText):
+	templ("MenuButton_active.png","MenuButton_inactive.png",
+	MenuButtonWidthPercent, MenuButtonHeightPercent), clickSpace(nullptr) {
+		constexpr int buttonSpacing = 5;//button spacing in pixels
+		
+		std::string theLongestString;
+		if( possibleText.size() > 0 )
+			theLongestString = multimedia::getTheLongestString(possibleText);
+		else
+			theLongestString = multimedia::getTheLongestString(textsOnButtons);
+		
+		int totalButtonsHeight = theWindow->getHeight() * ( textsOnButtons.size() > 4 ? 0.7 : 0.4);
+		int standardButtonHeight = (totalButtonsHeight / textsOnButtons.size()) - buttonSpacing;
+		int theBottomButtonPosition = (theWindow->getHeight() * ( textsOnButtons.size() > 4 ? 0.9 : 0.7)) - standardButtonHeight/2;
+		
+		templ.reloadAssetsForParametersH(standardButtonHeight, theLongestString);
+		
+		clickSpace = new UI::Space(0,0,theWindow->getWidth(),theWindow->getHeight());
+		//create buttons
+		for(auto textOnButton : textsOnButtons) {
+			Button *newButton = templ.makeButton(textOnButton, clickSpace);
+			newButton->assignEvents();
+			buttons.push_back( newButton );
+		}
+		//position buttons
+		int posX = theWindow->getWidth() / 2;
+		int posY = theBottomButtonPosition;
+		for(auto it = buttons.rbegin(); it != buttons.rend(); ++it) {
+			(*it)->setPosition(posX, posY, true);
+			posY -= standardButtonHeight + buttonSpacing;
+		}
+	}
+	
+	Menu::~Menu() {
+		for(auto button : buttons) {
+			delete button;
+		}
+		delete clickSpace;
+	}
+	
+	Button* Menu::getButton(unsigned int index) {
+		if( index >= buttons.size() ) return nullptr;
+		return buttons[index];
+	}
+	
+	void Menu::mouseActions(int mouseX, int mouseY, bool mouseClick) {
+		if( clickSpace == nullptr ) return;
+		if( mouseX != -1 && mouseY != -1 ) {
+			clickSpace->mouseMovedTo(mouseX, mouseY);
+		}
+		if( mouseClick ) clickSpace->mouseClick();
 	}
 	
 }//end namespace game_logic

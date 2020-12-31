@@ -16,6 +16,22 @@ namespace multimedia {
 	
 	class Surface;
 	class Drawer;
+	class Window;
+	
+	
+	class DirtyFlag {
+		public:
+			///checks the dirty flag and updates it
+			bool needsRedraw();
+		private:
+			friend class Window;
+			///private constructor for use only in the Window class
+			DirtyFlag();
+			///
+			void invalidate();
+			
+			bool flag;
+	};//end class DirtyFlag
 	
 	class Window {
 		public:
@@ -44,12 +60,13 @@ namespace multimedia {
 			Surface getWindowSurface();
 			///gets window drawer object for drawing with renderer
 			Drawer getWindowDrawer();
-			///a flag that informs other parts of the game of necessity to redraw its elements
-			char redrawFlag;
+			
 			///
 			int getWidth() const;
 			int getHeight() const;
 			bool isFullscreen() const;
+			
+			DirtyFlag* createDirtyFlag();
 		private:
 			SDL2_System *sdlSystem;
 			SDL_Surface* windowSurface = nullptr;
@@ -58,7 +75,10 @@ namespace multimedia {
 			bool fullscreenState;
 			const std::string windowTitle;
 			
-			///update(int newMouseX, int newMouseY, bool mouseClicked)
+			///a flag list that informs other parts of the game of necessity to redraw its elements
+			std::vector<DirtyFlag*> flags;
+			void invalidateFlags();
+			
 			std::function<void(int,int,bool)> updateCallback = nullptr;
 			std::function<void()> drawCallback = nullptr;
 	};//end class Window
@@ -98,6 +118,8 @@ namespace multimedia {
 			Drawer getDrawer();
 			
 			///draws a surface on this surface
+			void blit(Rect topLeft, const Surface& otherSurface);
+			///draws a surface on this surface at given position
 			void blit(int x, int y, const Surface& otherSurface );
 			///draws a surface on this surface with cropping
 			void blit(int x, int y, Rect sourceRect, const Surface& otherSurface);

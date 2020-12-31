@@ -2,7 +2,7 @@
 
 #function for making tests
 function(brs_test TEST_NAME EXTRA_FILES)
-add_executable(${TEST_NAME}_test test_${TEST_NAME}.cpp ${EXTRA_FILES})
+add_executable(${TEST_NAME}_test EXCLUDE_FROM_ALL test_${TEST_NAME}.cpp ${EXTRA_FILES})
 target_include_directories(${TEST_NAME}_test PUBLIC "${CMAKE_SOURCE_DIR}/src" "${CMAKE_SOURCE_DIR}/vendor")
 target_include_directories(${TEST_NAME}_test PRIVATE ${Boost_INCLUDE_DIRS})
 target_link_libraries(${TEST_NAME}_test SDL2::Main SDL2::Mixer SDL2::Image SDL2::TTF SDL2::GFX)

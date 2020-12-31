@@ -3,13 +3,33 @@
 */
 
 #include "errors.hpp"
-#include "window.hpp"
+#include "graphics.hpp"
 #include "mls.hpp"
 #include "filesystem.hpp"
 #include "SDL2_framerate.h"
 #include "SDL2_gfxPrimitives.h"
 
 namespace multimedia {
+	
+	/*
+	========================= DirtyFlag class =======================
+	*/
+	
+	DirtyFlag::DirtyFlag(): flag(true) {}
+	
+	///returns true if the flag is dirty
+	bool DirtyFlag::needsRedraw() {
+		if( flag ) {
+			flag = false;
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	void DirtyFlag::invalidate() {
+		flag = true;
+	}
 	
 	/*
 	========================= Window class =======================
@@ -55,12 +75,25 @@ namespace multimedia {
 			throw CriticalSDLError();
 		}
 		
-		//set redraw flag (MUST BE a non-zero value)
-		redrawFlag = -127;
 	}
 	
 	Window::~Window() {
 		if( windowHandle != nullptr ) SDL_DestroyWindow( windowHandle );
+		for(auto flag : flags) {
+			delete flag;
+		}
+	}
+	
+	DirtyFlag* Window::createDirtyFlag() {
+		DirtyFlag* flag = new DirtyFlag();
+		flags.push_back( flag );
+		return flag;
+	}
+	
+	void Window::invalidateFlags() {
+		for(auto flag : flags) {
+			flag->invalidate();
+		}
 	}
 	
 	void Window::registerUpdateFunction(std::function<void(int,int,bool)> callback) {
@@ -137,7 +170,7 @@ namespace multimedia {
 				ShowError( _("Unable to change into display mode '%{mode_text}%': ")
 					.apply("mode_text", mode.to_string()).get() , SDL_GetError() );
 			}
-			redrawFlag += 1;//SDL seems not to fire up the window change size event
+			invalidateFlags();//SDL seems not to fire up the window change size event
 		} else {
 			//if is windowed
 			SDL_SetWindowSize( windowHandle , mode.width , mode.height );
@@ -197,7 +230,7 @@ namespace multimedia {
 						if( e.window.event == SDL_WINDOWEVENT_SIZE_CHANGED ) {
 							windowSurface = SDL_GetWindowSurface( windowHandle );
 							windowRenderer = SDL_CreateSoftwareRenderer( windowSurface );
-							redrawFlag += 1;
+							invalidateFlags();
 							SDL_GetMouseState(&mouseX, &mouseY);
 							mouseMoved = true;
 						}
@@ -424,6 +457,10 @@ namespace multimedia {
 	
 	Drawer Surface::getDrawer() {
 		return Drawer( SDL_CreateSoftwareRenderer(surface) );
+	}
+	
+	void Surface::blit(Rect topLeft, const Surface& otherSurface) {
+		blit(topLeft.getLeft(), topLeft.getTop(), otherSurface);
 	}
 	
 	///draws other surface on this surface, the fastest way
