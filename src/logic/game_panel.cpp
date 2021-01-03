@@ -559,9 +559,12 @@ namespace game_logic {
 		}
 		
 		void init() {
+//must tempolary change the macro defintion
+#define _(STRING) STRING
 			undoText = new mls::Template(
-				 mls::backend::getTranslation("Undo\n(%{count}% left)"), 
+				 mls::backend::getTranslation(_("Undo\n(%{count}% left)")), 
 				 mls::defaultLanguage);
+#define _(STRING) mls::translate(STRING)
 			add2Text = _("Call for\nreinforcements").get();
 			endGameText = _("End game").get();
 			buttonTempl = new ButtonTemplate("GM_active.png", "GM_inactive.png",

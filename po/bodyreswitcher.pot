@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bodyreswitcher 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-03 11:30+0100\n"
+"POT-Creation-Date: 2021-01-03 12:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -299,31 +299,37 @@ msgstr ""
 
 #: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:565
 msgid ""
+"Undo\n"
+"(%{count}% left)"
+msgstr ""
+
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:568
+msgid ""
 "Call for\n"
 "reinforcements"
 msgstr ""
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:566
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:569
 msgid "End game"
 msgstr ""
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:661
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:664
 msgid ""
 "%{#When selected one body#}%Switch %{firstKid}% (in %{firstBody}%'s body) "
 "with..."
 msgstr ""
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:668
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:671
 msgid "Unselect"
 msgstr ""
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:674
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:677
 msgid ""
 "%{#When selected two bodies#}%Switch %{firstKid}% (in %{firstBody}%'s body) "
 "with %{secondKid}% (in %{secondBody}%'s body)"
 msgstr ""
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:683
+#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:686
 msgid "Switching imposible!"
 msgstr ""
 
