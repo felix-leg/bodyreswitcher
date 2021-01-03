@@ -6,9 +6,9 @@ have been switched they can't be switched back. Can you find the solution to thi
 
 ## Releases
 Use below links to download releases you want:
-- [MS Windows ZIP file](https://github.com/felix-leg/bodyreswitcher/releases/download/v1.0.1/bodyreswitcher_mswin_build_1.0.1.zip) - unzip to any folder and start `bodyreswitcher.exe`
-- [Debian amd64 .deb package](https://github.com/felix-leg/bodyreswitcher/releases/download/v1.0.1/bodyreswitcher_1.0.1_amd64.deb) - use `dpkg -i` to install this package on you Debian (or any Debian-like) system
-- [Autoconf sources](https://github.com/felix-leg/bodyreswitcher/releases/download/v1.0.1/body-re-switcher-1.0.1.tar.gz) - untar the archive and run standard `./configure` → `make` → `make install` commands
+- [MS Windows ZIP file](https://github.com/felix-leg/bodyreswitcher/releases/download/v2.0/bodyreswitcher_mswin_build_2.0.zip) - unzip to any folder and start `bodyreswitcher.exe`
+- [Debian amd64 .deb package](https://github.com/felix-leg/bodyreswitcher/releases/download/v2.0/bodyreswitcher_2.0_amd64.deb) - use `dpkg -i` to install this package on you Debian (or any Debian-like) system
+- [Autoconf sources](https://github.com/felix-leg/bodyreswitcher/releases/download/v2.0/body-re-switcher-2.0.tar.gz) - untar the archive and run standard `./configure` → `make` → `make install` commands
 
 ## How to play
 Once the game starts, choose the difficultly from the "New game" menu.
