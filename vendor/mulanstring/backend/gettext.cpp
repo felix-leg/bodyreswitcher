@@ -20,6 +20,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "../interface.hpp"
 #include <libintl.h>
 #include <locale.h>
+#include <string>
 
 namespace mls::backend {
 	
@@ -39,12 +40,12 @@ namespace mls::backend {
 		mls::initLocale(theLocale);
 	}
 	
-	char* getTranslation(const char* msgid) {
-		return gettext(msgid);
+	std::string getTranslation(const char* msgid) {
+		return std::string( gettext(msgid) );
 	}
 	
-	char* getTranslation(const char* catalogue, const char* msgid) {
-		return dgettext(catalogue, msgid);
+	std::string getTranslation(const char* catalogue, const char* msgid) {
+		return std::string( dgettext(catalogue, msgid) );
 	}
 }
 

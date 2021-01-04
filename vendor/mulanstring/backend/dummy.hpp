@@ -16,40 +16,22 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-#ifndef MULANSTR_MAIN_HPP
-#define MULANSTR_MAIN_HPP
+#pragma once
+
+#ifndef MULANSTR_BACKEND_DUMMY_HPP
+#define MULANSTR_BACKEND_DUMMY_HPP
 
  
 
 
+#include "../backend.hpp"
 
-#include "mulanstr_config.hpp"
-
-
-#ifdef MULANSTR_USE_GETTEXT
-
-#include "backend/gettext.hpp"
-
-#elif defined(MULANSTR_USE_DUMMY)
-
-#include "backend/dummy.hpp"
-
-#else
-#	error No defined backend for MuLan String Library
-#endif
-
-
-#include "basic_parse.hpp"
-#include "language_features.hpp"
-#include "template_object.hpp"
-#include "interface.hpp"
-
-#ifndef MULANSTR_DONT_USE_UNDERSCORE
-#define _(STRING) mls::translate(STRING)
-#define _c(CAT,STRING) mls::translate(CAT,STRING)
-#define _l(STRING,LOC) mls::translateWithLocale(STRING,LOC)
-#define _cl(CAT,STRING,LOC) mls::translateWithLocale(CAT,STRING,LOC)
-#endif
+namespace mls::backend {
+	
+	
+	void init();
+	
+}
 
 #endif
 

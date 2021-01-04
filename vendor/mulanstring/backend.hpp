@@ -24,12 +24,14 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
  
 
 
+#include <string>
+
 namespace mls::backend {
 	
-	char* getTranslation(const char* msgid);
+	std::string getTranslation(const char* msgid);
 	
 	
-	char* getTranslation(const char* catalogue, const char* msgid);
+	std::string getTranslation(const char* catalogue, const char* msgid);
 	
 	
 	

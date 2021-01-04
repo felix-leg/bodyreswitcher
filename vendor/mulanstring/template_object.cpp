@@ -123,6 +123,10 @@ namespace mls {
 	}
 	
 	
+	
+	
+	Template::Template(): languageFeature(nullptr) {}
+	
 	Template::Template(std::string string_template, Feature* langFeature):
 	languageFeature(langFeature) {
 		auto parsedString = basicParseString(string_template);
@@ -355,18 +359,24 @@ namespace mls {
 	}
 	
 	Template& Template::apply(std::string name, Template value) {
+		if( languageFeature == nullptr ) {
+		}
 		arguments.insert_or_assign(name,value);
 		
 		return *this;
 	}
 	
 	Template& Template::apply(std::string name, long value) {
+		if( languageFeature == nullptr ) {
+		}
 		arguments.insert_or_assign(name, value);
 		
 		return *this;
 	}
 	
 	std::string Template::get() {
+		if( languageFeature == nullptr ) {
+		}
 		std::string output;
 		
 		for(const auto& element : elements) {

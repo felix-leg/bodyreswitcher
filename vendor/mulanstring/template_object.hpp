@@ -38,6 +38,10 @@ namespace mls {
 	class WrongFunctionArguments : public std::exception {};
 	class RequiredVariableNotFound : public std::exception {};
 	
+#	ifdef MULANSTR_THROW_ON_INVALID_TEMPLATE
+	class InvalidTemplateState : public std::exception {};
+#	endif
+	
 	
 	
 	class Template; 
@@ -128,6 +132,9 @@ namespace mls {
 			Template(const Template& other);
 			Template(Template&& other) = default;
 			Template& operator=(const Template& other);
+			
+			
+			Template();
 			
 			
 			Template& apply(std::string name, std::string value);

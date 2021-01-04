@@ -23,6 +23,10 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 #include "backend/gettext.cpp"
 
+#elif defined(MULANSTR_USE_DUMMY)
+
+#include "backend/dummy.cpp"
+
 #else
 #	error No defined backend for MuLan String Library
 #endif

@@ -32,7 +32,7 @@ namespace game_logic {
 			multimedia::Surface overlay, infoTextSurface;
 			int overlayLeftPos;
 			std::string add2Text;
-			mls::Template *undoText = nullptr;
+			mls::Template undoText;
 			std::string endGameText;
 			Rect infoTextRect{0,0,0,0};
 			
@@ -469,7 +469,7 @@ namespace game_logic {
 			overlayLeftPos = leftBorder - 10;
 			
 			std::string theLongestText = multimedia::getTheLongestMultilineString({
-				undoText->apply("count",undoLeft).get(), add2Text, endGameText
+				undoText.apply("count",undoLeft).get(), add2Text, endGameText
 			});
 			
 			const int bHeight = buttonTempl->reloadAssetsForParametersW(panelWidth * 0.9, theLongestText);
@@ -479,7 +479,7 @@ namespace game_logic {
 			
 			add2Button = buttonTempl->makeButton(add2Text, clickSpace);
 			endGameButton = buttonTempl->makeButton(endGameText, clickSpace);
-			undoButton = buttonTempl->makeButton(undoText->apply("count",undoLeft).get(), clickSpace);
+			undoButton = buttonTempl->makeButton(undoText.apply("count",undoLeft).get(), clickSpace);
 			
 			add2Button->assignEvents();
 			endGameButton->assignEvents();
@@ -542,7 +542,7 @@ namespace game_logic {
 		
 		void updateUndo() {
 			if( undoButton == nullptr ) return;
-			undoButton->setText(undoText->apply("count",undoLeft).get());
+			undoButton->setText(undoText.apply("count",undoLeft).get());
 			if( undoLeft == 0 )
 				undoButton->enabled = false;
 			else
@@ -559,12 +559,7 @@ namespace game_logic {
 		}
 		
 		void init() {
-//must tempolary change the macro defintion
-#define _(STRING) STRING
-			undoText = new mls::Template(
-				 mls::backend::getTranslation(_("Undo\n(%{count}% left)")), 
-				 mls::defaultLanguage);
-#define _(STRING) mls::translate(STRING)
+			undoText = _("Undo\n(%{count}% left)");
 			add2Text = _("Call for\nreinforcements").get();
 			endGameText = _("End game").get();
 			buttonTempl = new ButtonTemplate("GM_active.png", "GM_inactive.png",
@@ -577,7 +572,6 @@ namespace game_logic {
 			overlay = Surface();
 			infoTextSurface = Surface();
 			//delete pointers
-			delete undoText;
 			delete clickSpace;
 			delete buttonTempl;
 		}
