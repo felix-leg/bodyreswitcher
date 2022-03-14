@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 project(BodyReSwitcher)
-set(BRS_Version "1.0")
+set(BRS_Version "2.0")
 option(USE_CONSOLE_OUTPUT "Print error messages to console instead of showing a message window" OFF)
 
 #add SDL2 libraries searching modules
@@ -19,30 +19,6 @@ find_package(SDL2_gfx REQUIRED)
 find_package(SDL2_ttf REQUIRED)
 
 #the source list
-# set(BRS_sources src/main.cpp
-# 				src/filesystem.cpp
-# 				src/animation.cpp
-# 				src/rect.cpp
-# 				src/ui.cpp
-# 				src/game_config.cpp
-# 				src/errors.cpp
-# 				src/mls.cpp
-# 				src/multimedia/system.cpp
-# 				src/multimedia/base.cpp
-# 				src/multimedia/window.cpp
-# 				src/multimedia/font.cpp
-# 				src/multimedia/sound.cpp
-# 				src/logic/layer.cpp
-# 				src/logic/buttons.cpp
-# 				src/logic/main_menu.cpp
-# 				src/logic/options_menu.cpp
-# 				src/logic/screen_size_menu.cpp
-# 				src/logic/about_screen.cpp
-# 				src/logic/new_game_menu.cpp
-# 				src/logic/person_graph.cpp
-# 				src/logic/game_panel.cpp
-# 				src/game_math/vector.cpp
-# )
 set(BRS_sources src/main.cpp
 				src/filesystem.cpp
 				src/animation.cpp
@@ -106,14 +82,7 @@ include(FindIntl)
 find_package(Intl REQUIRED)
 
 target_include_directories(bodyreswitcher PUBLIC "${Intl_INCLUDE_DIRS}")
-#message("Intl::INC = ${Intl_INCLUDE_DIRS}")
 target_link_libraries(bodyreswitcher "${Intl_LIBRARIES}")
-#message("Intl::LIB = ${Intl_LIBRARIES}")
-#if(MINGW)
-#message("BIN_DIR = ${CMAKE_BINARY_DIR}")
-#target_link_libraries(bodyreswitcher "-L${CMAKE_BINARY_DIR}/libs" "-lintl" "--verbose")
-#target_link_libraries(bodyreswitcher -static -static-libgcc -static-libstdc++ )
-#endif()
 
 #GetText library ----------------------------
 include(FindGettext)
@@ -179,4 +148,22 @@ COMMAND ${CMAKE_COMMAND} -E create_symlink \
 \"${PROJECT_INSTALL_ROOT}/bodyreswitcher\" \
 \"${DOLAR}ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/bodyreswitcher\" \
 )")
+
+#menu entry on Debian-like systems
+install(FILES "${CMAKE_SOURCE_DIR}/deb/bodyreswitcher.desktop"
+		DESTINATION "/usr/share/applications"
+		CONFIGURATIONS Release
+		COMPONENT debfiles
+		EXCLUDE_FROM_ALL
+		)
+install(FILES "${CMAKE_SOURCE_DIR}/deb/icon.png"
+		DESTINATION "${PROJECT_INSTALL_ROOT}"
+		CONFIGURATIONS Release
+		COMPONENT debfiles
+		EXCLUDE_FROM_ALL
+		)
 endif()
+
+#CPack
+set(CPACK_PROJECT_CONFIG_FILE "${CMAKE_CURRENT_SOURCE_DIR}/cpack_config.cmake")
+include(CPack)

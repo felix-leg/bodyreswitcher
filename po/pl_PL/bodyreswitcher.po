@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bodyreswitcher 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-03 12:01+0100\n"
+"POT-Creation-Date: 2022-03-14 16:19+0100\n"
 "PO-Revision-Date: 2021-01-03 12:02+0100\n"
 "Last-Translator: Przemysław Chojnacki <felix.leg@gmail.com>\n"
 "Language-Team: Polish\n"
@@ -19,119 +19,143 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Poedit 2.3\n"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/main.cpp:144
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/main.cpp:144
 msgid "Critical error happened. Terminating the program."
 msgstr "Wystąpił błąd krytyczny. Przerywam program."
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/errors.cpp:25
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/errors.cpp:25
 msgid "%{#Message box title#}%Program error"
 msgstr "Błąd programu"
 
 #. some error during initialization
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/system.cpp:18
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/system.cpp:18
 msgid "Unable to initialize SDL2: "
 msgstr "Nie udało się zainicjować SDL2: "
 
 #. some error during initialization
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/system.cpp:28
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/system.cpp:28
 msgid "Unable to initialize SDL2 Image module: "
 msgstr "Nie udało się zainicjować modułu SDL2 Image: "
 
 #. some error during initialization
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/system.cpp:37
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/system.cpp:37
 msgid "Unable to initialize SDL2 Font module: "
 msgstr "Nie udało się zainicjować modułu SDL2 Font: "
 
 #. some error during initialization
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/system.cpp:47
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/system.cpp:47
 msgid "Unable to initialize SDL2 Mixer module: "
 msgstr "Nie udało się zainicjować modułu SDL2 Mixer: "
 
 #. some error
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/system.cpp:54
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/system.cpp:54
 msgid "Unable to open SDL2 audio system: "
 msgstr "Nie udało się uruchomić systemu audio SDL2: "
 
 #. error?
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/system.cpp:93
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/system.cpp:93
 msgid "Unable to get available display modes on 1st monitor: "
 msgstr ""
 "Pobranie dostępnych trybów wyświetlania na pierwszym monitorze nieudane: "
 
 #. error?
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/system.cpp:101
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/system.cpp:101
 msgid "Unable to get information about %{#display#}%mode number %{num}%: "
 msgstr "Pobranie informacji o trybie wyświetlania o numerze %{num}% nieudane: "
 
 #. error?
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/system.cpp:126
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/system.cpp:126
 msgid "Unable to get information about desktop's display mode: "
 msgstr "Nie można pobrać informacji o trybie wyświetlania dla pulpitu: "
 
 #. error?
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/graphics.cpp:57
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/graphics.cpp:57
 msgid "Unable to create a window: "
 msgstr "Nie udało się utworzyć okna: "
 
 #. error?
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/graphics.cpp:64
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/graphics.cpp:64
 msgid "Unable to get the surface from the window: "
 msgstr "Nie udało się pobrać płótna z okna: "
 
 #. SDL_CreateRenderer( windowHandle, -1, SDL_RENDERER_ACCELERATED );
 #. error?
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/graphics.cpp:73
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/graphics.cpp:73
 msgid "Unable to create window renderer: "
 msgstr "Nie udało się stworzyć malarza dla okna: "
 
 #. error on geting display mode
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/graphics.cpp:121
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/graphics.cpp:121
 msgid "Unable to get current display mode: "
 msgstr "Nie można pobrać informacji o trybie wyświetlania dla pulpitu: "
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/graphics.cpp:156
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/graphics.cpp:156
 msgid "Can't change the fullscreen state: "
 msgstr "Nie można zmienić na pełny ekran lub okno: "
 
 #. error while changing mode
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/graphics.cpp:170
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/graphics.cpp:170
 msgid "Unable to change into display mode '%{mode_text}%': "
 msgstr "Nie można przełączyć na tryb wyświetlania '%{mode_text}%': "
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/graphics.cpp:327
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/graphics.cpp:327
 msgid "Tried to move window surface"
 msgstr "Podjęto próbę przeniesienia obiektu płótna okna"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/graphics.cpp:341
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/graphics.cpp:341
 msgid "Can't load file '%{filename}%': file doesn't exist"
 msgstr "Nie można załadować pliku '%{filename}%': plik nie istnieje"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/graphics.cpp:348
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/graphics.cpp:348
 msgid "Can't load file '%{filename}%':%{#SDL Image Error#}% "
 msgstr "Nie można załadować obrazu '%{filename}%': "
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/graphics.cpp:384
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/graphics.cpp:384
 msgid "Tried to overwrite window surface"
 msgstr "Podjęto próbę nadpisania płótna okna"
 
 #. error?
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/graphics.cpp:411
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/graphics.cpp:411
 msgid "Unable to create a RGB Surface: "
 msgstr "Nie udało się stworzyć płótna RGB: "
 
 #. error?
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/graphics.cpp:424
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/graphics.cpp:424
 #: reSwitcher/src/multimedia/graphics.cpp:507
 #: reSwitcher/src/multimedia/graphics.cpp:553
 msgid "Unable to create a RGBA Surface: "
 msgstr "Nie udało się stworzyć płótna RGBA: "
 
 #. error?
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/graphics.cpp:439
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/graphics.cpp:439
 msgid "Can't optimize surface: "
 msgstr "Nie można zoptimalizować płótna: "
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/graphics.cpp:596
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/graphics.cpp:596
 #: reSwitcher/src/multimedia/graphics.cpp:622
 #: reSwitcher/src/multimedia/graphics.cpp:645
 #: reSwitcher/src/multimedia/graphics.cpp:665
@@ -139,34 +163,39 @@ msgstr "Nie można zoptimalizować płótna: "
 msgid "Unable to draw with renderer: "
 msgstr "Malarz nie jest w stanie malować: "
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/font.cpp:65
-#: reSwitcher/src/multimedia/font.cpp:95 reSwitcher/src/multimedia/font.cpp:142
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/font.cpp:65 reSwitcher/src/multimedia/font.cpp:95
+#: reSwitcher/src/multimedia/font.cpp:142
 msgid "Can't load font '%{filename}%': file doesn't exist"
 msgstr "Nie udało się załadować fontu '%{filename}%': plik nie istnieje"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/font.cpp:72
-#: reSwitcher/src/multimedia/font.cpp:108
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/font.cpp:72 reSwitcher/src/multimedia/font.cpp:108
 #: reSwitcher/src/multimedia/font.cpp:154
 msgid "Can't load font '%{filename}%' with size %{size}%pt: "
 msgstr "Nie udało się załadować fontu '%{filename}%' o rozmiarze %{size}%pt: "
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/font.cpp:128
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/font.cpp:128
 msgid ""
 "Couldn't found a font to fit '%{text}%' into a %{width}%x%{height}% rectangle"
 msgstr ""
 "Nie udało się znaleźć takiego fontu, aby zmieścić tekst '%{text}%' w "
 "prostokącie o wymiarach %{width}% na %{height}%"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/font.cpp:173
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/font.cpp:173
 msgid "Couldn't find a font of the desired %{size}%px size"
 msgstr ""
 "Nie udało się znaleźć fontu o rozmiarze %{size}% piksel%{size!P:a,i,ów}%"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/font.cpp:198
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/font.cpp:198
 msgid "Can't render the text '%{text}%': "
 msgstr "Nie można narysować tekstu '%{text}%': "
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/font.cpp:260
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/font.cpp:260
 #: reSwitcher/src/multimedia/font.cpp:285
 msgid ""
 "Unable to fit the word %{wide_word}% into the desired %{max_width}%px size"
@@ -174,56 +203,68 @@ msgstr ""
 "Przestrzeń o rozmiarze %{max_width}% piksel%{max_width!P:a,i,ów}% jest za "
 "mała dla słowa %{wide_word}%"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/sound.cpp:21
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/sound.cpp:21
 msgid "Unable to load music file '%{filename}%': file doesn't exists"
 msgstr ""
 "Nie udało się załadować pliku z muzyką '%{filename}%': plik nie istnieje"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/sound.cpp:28
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/sound.cpp:28
 msgid "Unable to load music file '%{filename}%': "
 msgstr "Nie udało się załadować pliku z muzyką '%{filename}%': "
 
 #. loop forever
 #. error?
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/sound.cpp:41
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/sound.cpp:41
 msgid "Can't play the music: "
 msgstr "Nie można odtworzyć muzyki: "
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/sound.cpp:70
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/sound.cpp:70
 msgid "Unable to load sound file '%{filename}%': file doesn't exists"
 msgstr ""
 "Nie udało się załadować pliku z dźwiękiem '%{filename}%': plik nie istnieje"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/sound.cpp:77
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/sound.cpp:77
 msgid "Unable to load sound file '%{filename}%': "
 msgstr "Nie udało się załadować pliku z dźwiękiem '%{filename}%': "
 
 #. sound can't be played
-#: /home/przemo/Programowanie/Body reSwitcher/src/multimedia/sound.cpp:93
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/multimedia/sound.cpp:93
 msgid "Unable to play sound: "
 msgstr "Nie można odtworzyć dźwięku: "
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/main_menu.cpp:45
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/main_menu.cpp:45
 msgid "%{#Main menu#}%What it's about?"
 msgstr "O co tu chodzi?"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/main_menu.cpp:46
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/main_menu.cpp:46
 msgid "%{#Main menu#}%New game"
 msgstr "Nowa gra"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/main_menu.cpp:47
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/main_menu.cpp:47
 msgid "%{#Main menu#}%Options"
 msgstr "Opcje"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/main_menu.cpp:48
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/main_menu.cpp:48
 msgid "%{#Main menu#}%Exit"
 msgstr "Wyjście"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/about_menu.cpp:210
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/about_menu.cpp:210
 msgid "%{#About screen#}%Back"
 msgstr "Cofnij"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/about_menu.cpp:213
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/about_menu.cpp:213
 msgid ""
 "One night The Crazy Professor made an amazing machine that gives one the "
 "ability to switch body with another person. Such an invention! Unfortunately "
@@ -237,7 +278,8 @@ msgstr ""
 "zaczęła bawić się jego wynalazkiem. Cóż za bałagan! Pozamieniali się ciałami "
 "i teraz potrzebują Twojej pomocy by to naprawić."
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/about_menu.cpp:220
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/about_menu.cpp:220
 msgid ""
 "But The Crazy Profesor has return and has got bad news! He says two bodies "
 "that were switched now can't be switched back. Oh noes! But you have got an "
@@ -250,7 +292,8 @@ msgstr ""
 "\"obejść\" problem przez zamienienie innych dwóch ciał miejscami? To jest "
 "pomysł!"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/about_menu.cpp:228
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/about_menu.cpp:228
 msgid ""
 "So, you became the last hope for those poor kids. Can you solve the puzzle "
 "and make them happy again?"
@@ -258,70 +301,83 @@ msgstr ""
 "Tak oto zostałeś ostatnią nadzieją dla tych biednych dzieci. Czy potrafisz "
 "rozwiązać tę łamigłówkę i uczynić je znów szczęśliwymi?"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/options_menu.cpp:109
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/options_menu.cpp:109
 msgid "Music: On"
 msgstr "Muzyka wł."
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/options_menu.cpp:110
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/options_menu.cpp:110
 msgid "Music: Off"
 msgstr "Muzyka wył."
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/options_menu.cpp:111
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/options_menu.cpp:111
 msgid "Fullscreen: On"
 msgstr "Pełny ekran"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/options_menu.cpp:112
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/options_menu.cpp:112
 msgid "Fullscreen: Off"
 msgstr "Okno"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/options_menu.cpp:113
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/options_menu.cpp:113
 msgid "Set screen size"
 msgstr "Wybierz rozmiar ekranu"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/options_menu.cpp:114
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/options_menu.cpp:114
 msgid "%{#Back to main menu#}%Back"
 msgstr "Wróć"
 
-#: /home/przemo/Programowanie/Body
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
 #: reSwitcher/src/logic/screen_size_menu.cpp:133
 msgid "%{#Video modes list#}%<- Previous"
 msgstr "<- Poprzednie"
 
-#: /home/przemo/Programowanie/Body
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
 #: reSwitcher/src/logic/screen_size_menu.cpp:134
 msgid "%{#Video modes list#}%Next ->"
 msgstr "Następne ->"
 
-#: /home/przemo/Programowanie/Body
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
 #: reSwitcher/src/logic/screen_size_menu.cpp:135
 msgid "%{#Video modes list#}%Cancel"
 msgstr "Anuluj"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/new_game_menu.cpp:91
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/new_game_menu.cpp:91
 msgid "%{#Game difficulty#}%Easy"
 msgstr "Łatwa"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/new_game_menu.cpp:92
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/new_game_menu.cpp:92
 msgid "%{#Game difficulty#}%Normal"
 msgstr "Średnia"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/new_game_menu.cpp:93
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/new_game_menu.cpp:93
 msgid "%{#Game difficulty#}%Hard"
 msgstr "Trudna"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/new_game_menu.cpp:94
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/new_game_menu.cpp:94
 msgid "%{#Close menu#}%Back"
 msgstr "Wróć"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:428
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/game_panel.cpp:428
 msgid "You Won!"
 msgstr "Wygrałeś!"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:429
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/game_panel.cpp:429
 msgid "You Lose!"
 msgstr "Przegrałeś!"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:565
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/game_panel.cpp:562
 msgid ""
 "Undo\n"
 "(%{count}% left)"
@@ -329,7 +385,8 @@ msgstr ""
 "Cofinij\n"
 "(pozostał%{count!P:a,y,o}% %{count}% prób%{count!P:a,y,}%)"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:568
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/game_panel.cpp:563
 msgid ""
 "Call for\n"
 "reinforcements"
@@ -337,21 +394,25 @@ msgstr ""
 "Wezwij\n"
 "posiłki"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:569
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/game_panel.cpp:564
 msgid "End game"
 msgstr "Zakończ"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:664
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/game_panel.cpp:658
 msgid ""
 "%{#When selected one body#}%Switch %{firstKid}% (in %{firstBody}%'s body) "
 "with..."
 msgstr "Zamień %{firstKid!C=acc}% (w ciele %{firstBody!C=gen}%) z..."
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:671
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/game_panel.cpp:665
 msgid "Unselect"
 msgstr "Odznacz"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:677
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/game_panel.cpp:671
 msgid ""
 "%{#When selected two bodies#}%Switch %{firstKid}% (in %{firstBody}%'s body) "
 "with %{secondKid}% (in %{secondBody}%'s body)"
@@ -359,84 +420,104 @@ msgstr ""
 "Zamień %{firstKid!C=acc}% (w ciele %{firstBody!C=gen}%) z %{secondKid!"
 "C=ins}% (w ciele %{secondBody!C=gen}%)"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/game_panel.cpp:686
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/game_panel.cpp:680
 msgid "Switching imposible!"
 msgstr "Zamiana ciał niemożliwa!"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:44
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/person_graph.cpp:44
 msgid ""
 "%{# A '|' separated list of the first letters of kids' names. Must be 18 of "
 "them. #}%A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|R|S"
 msgstr "A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|R|S"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:65
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/person_graph.cpp:65
 msgid "%{#1st kid name#}%Amelia"
 msgstr "Agat%{+C:a,y,cie,ę,ą,cie,o}%"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:70
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/person_graph.cpp:70
 msgid "%{#2nd kid name#}%Brooke"
 msgstr "Bartosz%{+C:,a,owi,a,em,u,u}%"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:75
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/person_graph.cpp:75
 msgid "%{#3rd kid name#}%Charlie"
 msgstr "Czesław%{+C:,a,owi,a,em,ie,ie}%"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:80
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/person_graph.cpp:80
 msgid "%{#4th kid name#}%Daisy"
 msgstr "Domini%{+C:ka,ki,ce,kę,ką,ce,ko}%"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:85
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/person_graph.cpp:85
 msgid "%{#5th kid name#}%Emily"
 msgstr "Ew%{+C:a,y,ie,ę,ą,ie,o}%"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:90
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/person_graph.cpp:90
 msgid "%{#6th kid name#}%Freddie"
 msgstr "Filip%{+C:,a,owi,a,em,ie,ie}%"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:95
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/person_graph.cpp:95
 msgid "%{#7th kid name#}%George"
 msgstr "Grzegorz%{+C:,a,owi,a,em,u,u}%"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:100
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/person_graph.cpp:100
 msgid "%{#8th kid name#}%Harry"
 msgstr "Hektor%{+C:,a,owi,a,em,ze,ze}%"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:105
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/person_graph.cpp:105
 msgid "%{#9th kid name#}%Isabel"
 msgstr "Izabel%{+C:a,i,i,ę,ą,i,o}%"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:110
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/person_graph.cpp:110
 msgid "%{#10th kid name#}%Julia"
 msgstr "Jagod%{+C:a,y,zie,ę,ą,zie,o}%"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:115
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/person_graph.cpp:115
 msgid "%{#11th kid name#}%Katie"
 msgstr "Karolin%{+C:a,y,ie,ę,ą,ie,o}%"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:120
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/person_graph.cpp:120
 msgid "%{#12th kid name#}%Lilly"
 msgstr "Lar%{+C:a,y,ze,ę,ą,ze,o}%"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:125
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/person_graph.cpp:125
 msgid "%{#13th kid name#}%Matthew"
 msgstr "Mieszk%{+C:o,a,owi,a,iem,u,u}%"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:130
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/person_graph.cpp:130
 msgid "%{#14th kid name#}%Nancy"
 msgstr "Natali%{+C:a,i,i,ę,ą,i,o}%"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:135
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/person_graph.cpp:135
 msgid "%{#15th kid name#}%Oliver"
 msgstr "Ores%{+C:t,ta,towi,ta,tem,cie,cie}%"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:140
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/person_graph.cpp:140
 msgid "%{#16th kid name#}%Peter"
 msgstr "Piotr%{+C:,a,owi,a,em,ze,ze}%"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:145
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/person_graph.cpp:145
 msgid "%{#17th kid name#}%Robert"
 msgstr "Rober%{+C:t,ta,towi,ta,tem,cie,cie}%"
 
-#: /home/przemo/Programowanie/Body reSwitcher/src/logic/person_graph.cpp:150
+#: /home/przemo/Programowanie/Projekty na GitHub/Body
+#: reSwitcher/src/logic/person_graph.cpp:150
 msgid "%{#18th kid name#}%Sophie"
 msgstr "Sar%{+C:a,y,ze,ę,ą,ze,o}%"

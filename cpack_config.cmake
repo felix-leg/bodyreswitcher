@@ -1,0 +1,45 @@
+set(BRS_Package "bodyreswitcher")
+set(BRS_Version "2.0")
+set(BRS_Desc "A game where you help poor kids getting their bodies back")
+set(BRS_Home "https://github.com/felix-leg/bodyreswitcher")
+
+set(CPACK_COMPONENTS_ALL "Unspecified")
+set(CPACK_COMPONENTS_GROUPING ALL_COMPONENTS_IN_ONE)
+
+#DEBIAN
+if("${CPACK_GENERATOR}" MATCHES "DEB")
+	set(CPACK_DEB_COMPONENT_INSTALL ON)
+	set(CPACK_COMPONENTS_ALL "Unspecified;debfiles")
+	
+	set(CMAKE_INSTALL_PREFIX "/usr")
+	set(CPACK_DEBIAN_PACKAGE_NAME "${BRS_Package}")
+	set(CPACK_DEBIAN_FILE_NAME DEB-DEFAULT)
+	set(CPACK_DEBIAN_PACKAGE_VERSION "${BRS_Version}")
+	set(CPACK_DEBIAN_PACKAGE_ARCHITECTURE "amd64")
+	set(CPACK_DEBIAN_PACKAGE_DEPENDS "libstdc++6 (>= 4.1.1), libc6 (>= 2.27), libsdl2-2.0-0 (>= 2.0.10), libsdl2-mixer-2.0-0 (>= 2.0.4), libsdl2-ttf-2.0-0 (>= 2.0.15), libsdl2-image-2.0-0 (>= 2.0.5), libsdl2-gfx-1.0-0 (>= 1.0.4)")
+	set(CPACK_DEBIAN_PACKAGE_MAINTAINER "Felix-leg <felix.leg@gmail.com>")
+	set(CPACK_DEBIAN_PACKAGE_DESCRIPTION "${BRS_Desc}")
+	set(CPACK_DEBIAN_PACKAGE_SECTION "games")
+	set(CPACK_DEBIAN_ARCHIVE_TYPE "gnutar")
+	set(CPACK_DEBIAN_COMPRESSION_TYPE "gzip")
+	set(CPACK_DEBIAN_PACKAGE_PRIORITY "optional")
+	set(CPACK_DEBIAN_PACKAGE_HOMEPAGE "${BRS_Home}")
+elseif("${CPACK_GENERATOR}" MATCHES "RPM")
+#Fedora/Red Hat
+	set(CPACK_RPM_COMPONENT_INSTALL ON)
+	
+	set(CPACK_RPM_PACKAGE_SUMMARY "${BRS_Desc}")
+	set(CPACK_RPM_PACKAGE_NAME "${BRS_Package}")
+	set(CPACK_RPM_FILE_NAME RPM-DEFAULT)
+	set(CPACK_RPM_PACKAGE_VERSION "${BRS_Version}")
+	#set(CPACK_RPM_PACKAGE_ARCHITECTURE ?)
+	set(CPACK_RPM_PACKAGE_RELEASE 1)
+	set(CPACK_RPM_PACKAGE_LICENCE "GPLv3")
+	set(CPACK_RPM_PACKAGE_GROUP "Games")
+	#set(CPACK_RPM_PACKAGE_VENDOR "CPack")
+	set(CPACK_RPM_PACKAGE_URL "${BRS_Home}")
+	set(CPACK_RPM_PACKAGE_DESCRIPTION "${BRS_Desc}")
+	#TODO: find requirements on Fedora
+	#set(CPACK_RPM_PACKAGE_REQUIRES "?")
+endif()
+
