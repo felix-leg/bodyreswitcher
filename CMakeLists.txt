@@ -5,18 +5,36 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-project(BodyReSwitcher)
+project(BodyReSwitcher VERSION 2.0)
 set(BRS_Version "2.0")
 option(USE_CONSOLE_OUTPUT "Print error messages to console instead of showing a message window" OFF)
 
+if(MSVC)
+	if(VCPKG_HOME)
+		list(APPEND CMAKE_PREFIX_PATH "${VCPKG_HOME}/installed/x64-windows/share")
+		include( "${VCPKG_HOME}/scripts/buildsystems/vcpkg.cmake" )
+	else()
+		message(WARNING "Under MSVC you may need VCPKG. If you do so, run CMake with -DVCPKG_HOME=<your vcpkg home directory>")
+	endif()
+endif()
+
 #add SDL2 libraries searching modules
-list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/sdl2)
-#find the SDL2 modules required by the game
-find_package(SDL2 REQUIRED)
-find_package(SDL2_mixer REQUIRED)
-find_package(SDL2_image REQUIRED)
-find_package(SDL2_gfx REQUIRED)
-find_package(SDL2_ttf REQUIRED)
+if(NOT MSVC)
+	list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/sdl2)
+	#find the SDL2 modules required by the game
+	find_package(SDL2 REQUIRED)
+	find_package(SDL2_mixer REQUIRED)
+	find_package(SDL2_image REQUIRED)
+	find_package(SDL2_gfx REQUIRED)
+	find_package(SDL2_ttf REQUIRED)
+else()
+	#find the SDL2 modules required by the game
+	find_package(SDL2 REQUIRED)
+	find_package(SDL2-mixer REQUIRED)
+	find_package(SDL2-image REQUIRED)
+	find_package(SDL2-ttf REQUIRED)
+	find_package(SDL2-gfx REQUIRED)
+endif()
 
 #the source list
 set(BRS_sources src/main.cpp
@@ -48,7 +66,12 @@ set(BRS_sources src/main.cpp
 
 add_executable(bodyreswitcher ${BRS_sources})
 #link with found SDL2 libraries
-target_link_libraries(bodyreswitcher SDL2::Main SDL2::Mixer SDL2::Image SDL2::TTF SDL2::GFX)
+if(NOT MSVC)
+	target_link_libraries(bodyreswitcher SDL2::Main SDL2::Mixer SDL2::Image SDL2::TTF SDL2::GFX)
+else()
+	target_link_libraries(bodyreswitcher SDL2::SDL2 SDL2::SDL2main SDL2::SDL2_mixer SDL2::SDL2_image SDL2::SDL2_ttf SDL2::SDL2_GFX)
+endif()
+
 target_compile_definitions(bodyreswitcher PRIVATE "$<$<CONFIG:DEBUG>:CMAKE_DEBUG>")
 if(USE_CONSOLE_OUTPUT)
 target_compile_definitions(bodyreswitcher PRIVATE "USE_CONSOLE_OUTPUT")
@@ -72,9 +95,9 @@ endif()
 include(GNUInstallDirs)
 
 if(WIN32)
-set(PROJECT_INSTALL_ROOT "${CMAKE_INSTALL_PREFIX}\\BodyReSwitcher")
+	set(PROJECT_INSTALL_ROOT "${CMAKE_INSTALL_PREFIX}\\BodyReSwitcher")
 else()
-set(PROJECT_INSTALL_ROOT "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_DATADIR}/bodyreswitcher")
+	set(PROJECT_INSTALL_ROOT "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_DATADIR}/bodyreswitcher")
 endif()
 
 #Locale (used by GetText) library -----------
@@ -167,3 +190,9 @@ endif()
 #CPack
 set(CPACK_PROJECT_CONFIG_FILE "${CMAKE_CURRENT_SOURCE_DIR}/cpack_config.cmake")
 include(CPack)
+
+#for Visual Studio
+if(MSVC)
+	source_group(TREE "${CMAKE_SOURCE_DIR}/src" FILES "${BRS_sources}")
+	set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT bodyreswitcher)
+endif()
