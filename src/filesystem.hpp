@@ -8,6 +8,7 @@
 namespace filesystem {
 	
 	std::string getProgramDir();
+	std::string getAssetRoot();
 	std::string getDataPath(std::string dataName);
 	bool pathExists(std::string path);
 	std::string getConfigurationFile(bool createIfNecessary);

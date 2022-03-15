@@ -16,17 +16,11 @@
 //function to initialize the mls
 void mls_init() {
 	std::string localeDir;
-	localeDir = filesystem::getProgramDir();
+	localeDir = filesystem::getAssetRoot();
 	#if __has_include(<windows.h>)
 	localeDir += "\\";
-	#	ifdef CMAKE_DEBUG
-	localeDir += "..\\";
-	#	endif
 	#else
 	localeDir += "/";
-	#	ifdef CMAKE_DEBUG
-	localeDir += "../";
-	#	endif
 	#endif
 	localeDir += "locale";
 	

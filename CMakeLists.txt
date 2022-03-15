@@ -39,29 +39,54 @@ endif()
 #the source list
 set(BRS_sources src/main.cpp
 				src/filesystem.cpp
+				src/filesystem.hpp
 				src/animation.cpp
+				src/animation.hpp
 				src/rect.cpp
+				src/rect.hpp
 				src/ui.cpp
+				src/ui.hpp
 				src/game_config.cpp
+				src/game_config.hpp
 				src/errors.cpp
+				src/errors.hpp
 				src/mls.cpp
+				src/mls.hpp
 				src/multimedia/system.cpp
+				src/multimedia/system.hpp
 				src/multimedia/base.cpp
+				src/multimedia/base.hpp
 				src/multimedia/graphics.cpp
+				src/multimedia/graphics.hpp
 				src/multimedia/font.cpp
+				src/multimedia/font.hpp
 				src/multimedia/sound.cpp
+				src/multimedia/sound.hpp
 				src/game_math/vector.cpp
+				src/game_math/vector.hpp
+				src/game_math/graph.hpp
 				src/logic/common.cpp
+				src/logic/common.hpp
 				src/logic/module.cpp
+				src/logic/module.hpp
 				src/logic/buttons.cpp
+				src/logic/buttons.hpp
 				src/logic/main_menu_background.cpp
+				src/logic/main_menu_background.hpp
 				src/logic/main_menu.cpp
+				src/logic/main_menu.hpp
 				src/logic/about_menu.cpp
+				src/logic/about_menu.hpp
 				src/logic/options_menu.cpp
+				src/logic/options_menu.hpp
 				src/logic/screen_size_menu.cpp
+				src/logic/screen_size_menu.hpp
 				src/logic/new_game_menu.cpp
+				src/logic/new_game_menu.hpp
 				src/logic/game_panel.cpp
+				src/logic/game_panel.hpp
 				src/logic/person_graph.cpp
+				src/logic/person_graph.hpp
 )
 
 add_executable(bodyreswitcher ${BRS_sources})
@@ -69,12 +94,12 @@ add_executable(bodyreswitcher ${BRS_sources})
 if(NOT MSVC)
 	target_link_libraries(bodyreswitcher SDL2::Main SDL2::Mixer SDL2::Image SDL2::TTF SDL2::GFX)
 else()
-	target_link_libraries(bodyreswitcher SDL2::SDL2 SDL2::SDL2main SDL2::SDL2_mixer SDL2::SDL2_image SDL2::SDL2_ttf SDL2::SDL2_GFX)
+	target_link_libraries(bodyreswitcher SDL2::SDL2 SDL2::SDL2main SDL2::SDL2_mixer SDL2::SDL2_image SDL2::SDL2_ttf SDL2::SDL2_gfx)
 endif()
 
 target_compile_definitions(bodyreswitcher PRIVATE "$<$<CONFIG:DEBUG>:CMAKE_DEBUG>")
 if(USE_CONSOLE_OUTPUT)
-target_compile_definitions(bodyreswitcher PRIVATE "USE_CONSOLE_OUTPUT")
+	target_compile_definitions(bodyreswitcher PRIVATE "USE_CONSOLE_OUTPUT")
 endif()
 
 target_include_directories(bodyreswitcher PUBLIC "${CMAKE_SOURCE_DIR}/src")
@@ -105,6 +130,9 @@ include(FindIntl)
 find_package(Intl REQUIRED)
 
 target_include_directories(bodyreswitcher PUBLIC "${Intl_INCLUDE_DIRS}")
+if(MSVC)
+	list(APPEND Intl_LIBRARIES "${VCPKG_HOME}installed/x64-windows/lib/intl.lib;${VCPKG_HOME}installed/x64-windows/lib/iconv.lib") #MSVC seems to forget about these libraries 
+endif()
 target_link_libraries(bodyreswitcher "${Intl_LIBRARIES}")
 
 #GetText library ----------------------------

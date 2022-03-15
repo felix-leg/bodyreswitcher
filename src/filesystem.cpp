@@ -24,11 +24,11 @@ std::string fromWString(wchar_t *wideString, DWORD wideSize) {
 	if( requiredSize > 0 ) {
 		resultChar = new char[requiredSize];
 		if( WideCharToMultiByte( CP_UTF8, 0, wideString, wideSize, resultChar, requiredSize, NULL, NULL) == 0 ) {//conversion error?
-			delete resultChar;
+			delete[] resultChar;
 			return "";
 		} else { //success?
 			std::string result = std::string(resultChar, requiredSize);
-			delete resultChar;
+			delete[] resultChar;
 			return result;
 		}
 	} else { //conversion error
@@ -43,11 +43,11 @@ std::wstring toWString(std::string source) {
 	if( requiredSize > 0 ) {
 		wchar_t* resultWChar = new wchar_t[requiredSize];
 		if( MultiByteToWideChar( CP_UTF8, 0, source.c_str(), source.length(), resultWChar, requiredSize) == 0 ) {//conversion error
-			delete resultWChar;
+			delete[] resultWChar;
 			return L"";
 		} else { //success?
 			resultWString = std::wstring(resultWChar, requiredSize);
-			delete resultWChar;
+			delete[] resultWChar;
 		}
 	} else { //conversion error
 		return L"";
@@ -93,21 +93,41 @@ namespace filesystem {
 		return dirName( std::string( result, (count > 0) ? count : 0 ) );
 		#endif
 	}
+
+	///finds the folder with `data` and `locale` directories
+	std::string getAssetRoot() {
+		static bool found = false;
+		static std::string assets;
+		constexpr char* pathSep =
+			#ifdef MSWIN_SYSTEM
+			"\\"
+			#else
+			"/"
+			#endif
+			;
+
+		if( !found ) {
+			assets = getProgramDir();
+
+			while( !pathExists( assets + pathSep + "data" ) || !pathExists( assets + pathSep + "locale" ) ) {
+				assets += pathSep;
+				assets += "..";
+			}
+
+			found = true;
+		}
+
+		return assets;
+	}
 	
 	///makes a path for the given data name
 	std::string getDataPath(std::string dataName) {
 		#ifdef MSWIN_SYSTEM
 		std::string dataSubDir = std::string("\\data\\");
-		#	ifdef CMAKE_DEBUG
-			dataSubDir = std::string("\\..") + dataSubDir;
-		#	endif
 		#else
 		std::string dataSubDir = std::string("/data/");
-		#	ifdef CMAKE_DEBUG
-			dataSubDir = std::string("/..") + dataSubDir;
-		#	endif
 		#endif
-		return getProgramDir() + dataSubDir + dataName;
+		return getAssetRoot() + dataSubDir + dataName;
 	}
 	
 	///checks if path exists

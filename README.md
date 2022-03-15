@@ -5,9 +5,9 @@ have to clean that mess! But there is a catch: once two bodies
 have been switched they can't be switched back. Can you find the solution to this puzzle?
 
 ## Releases
-Use below links to download releases you want:
+Use below links to download the releases you want:
 - [MS Windows ZIP file](https://github.com/felix-leg/bodyreswitcher/releases/download/v2.0/bodyreswitcher_mswin_build_2.0.zip) - unzip to any folder and start `bodyreswitcher.exe`
-- [Debian amd64 .deb package](https://github.com/felix-leg/bodyreswitcher/releases/download/v2.0/bodyreswitcher_2.0_amd64.deb) - use `dpkg -i` to install this package on you Debian (or any Debian-like) system
+- [Debian amd64 .deb package](https://github.com/felix-leg/bodyreswitcher/releases/download/v2.0/bodyreswitcher_2.0_amd64.deb) - use `dpkg -i` to install this package on your Debian (or any Debian-like) system
 - [Autoconf sources](https://github.com/felix-leg/bodyreswitcher/releases/download/v2.0/body-re-switcher-2.0.tar.gz) - untar the archive and run standard `./configure` → `make` → `make install` commands
 
 ## How to play
@@ -24,8 +24,8 @@ in the same way. If the switch is possible (the circles are connected with a blu
 you will see the switch animation. 
 
 Except switching bodies, you can also do two other things:
-- **Call for reinforcements** adds 2 extra people to the graph in their own bodies.
-- **Undo** gives you the ability to undo last *n* switches you have made. Unfortunately there is 
+- **Call for reinforcements**: adds 2 extra people to the graph in their own bodies.
+- **Undo**: gives you the ability to undo last *n* switches you have made. Unfortunately there is 
 a limit of how many times you can do this.
 
 ## Licences

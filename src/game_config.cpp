@@ -30,8 +30,8 @@ std::string GameConfig::to_string() const {
 
 //reading and saving
 
-constexpr const char* configHeader = "BodyReSwitcher1.0";
-constexpr unsigned int configHeaderLength = std::strlen(configHeader);
+constexpr const char* configHeader = "BodyReSwitcher2.0";
+constexpr unsigned int configHeaderLength = 18;
 constexpr char fullscreenBit = 0b00000001;
 constexpr char musicBit = 0b00000010;
 
