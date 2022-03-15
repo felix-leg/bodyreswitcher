@@ -120,9 +120,11 @@ endif()
 include(GNUInstallDirs)
 
 if(WIN32)
-	set(PROJECT_INSTALL_ROOT "${CMAKE_INSTALL_PREFIX}\\BodyReSwitcher")
+	set(PROJECT_INSTALL_ROOT ".")
+	set(PROJECT_EXE_ROOT ".")
 else()
 	set(PROJECT_INSTALL_ROOT "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_DATADIR}/bodyreswitcher")
+	set(PROJECT_EXE_ROOT "${PROJECT_INSTALL_ROOT}")
 endif()
 
 #Locale (used by GetText) library -----------
@@ -181,9 +183,15 @@ DESTINATION "${PROJECT_INSTALL_ROOT}"
 CONFIGURATIONS Release
 )
 
+#locale dir
+install( DIRECTORY "locale"
+DESTINATION "${PROJECT_INSTALL_ROOT}"
+CONFIGURATIONS Release
+)
+
 #the game's main program file
 install( TARGETS bodyreswitcher RUNTIME
-DESTINATION "${PROJECT_INSTALL_ROOT}"
+DESTINATION "${PROJECT_EXE_ROOT}"
 CONFIGURATIONS Release
 )
 
@@ -213,6 +221,41 @@ install(FILES "${CMAKE_SOURCE_DIR}/deb/icon.png"
 		COMPONENT debfiles
 		EXCLUDE_FROM_ALL
 		)
+else()
+	#Install dll-s too
+	# install(TARGETS 
+			# "brotlicommon.dll"
+			# "brotlidec.dll"
+			# "bz2.dll"
+			# "freetype.dll"
+			# "iconv-2.dll"
+			# "intl-8.dll"
+			# "libpng16.dll"
+			# "ogg.dll"
+			# "SDL2.dll"
+			# "SDL2_gfx.dll"
+			# "SDL2_image.dll"
+			# "SDL2_mixer.dll"
+			# "SDL2_ttf.dll"
+			# "vorbis.dll"
+			# "vorbisfile.dll"
+			# "zlib1.dll"
+			# DESTINATION "${PROJECT_EXE_ROOT}"
+			# CONFIGURATIONS Release
+		# )
+	install(CODE "set(BUILD_ROOT \"${CMAKE_BINARY_DIR}\")") 
+	install(CODE [[
+	file(GET_RUNTIME_DEPENDENCIES 
+		RESOLVED_DEPENDENCIES_VAR BRS_Dep
+		UNRESOLVED_DEPENDENCIES_VAR BRS_Undep
+		EXECUTABLES Release/bodyreswitcher.exe
+		POST_EXCLUDE_REGEXES "^[A-Z]:"
+		)
+		list(TRANSFORM BRS_Dep PREPEND "${BUILD_ROOT}/")
+		file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/." FILES ${BRS_Dep})
+		]])
+	set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE.txt")
+	set(CPACK_WIX_PRODUCT_ICON "${CMAKE_CURRENT_SOURCE_DIR}/win32/icon.ico")
 endif()
 
 #CPack
