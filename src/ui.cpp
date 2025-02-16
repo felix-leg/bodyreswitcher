@@ -9,11 +9,10 @@
 
 namespace UI {
 	
-	///UI space ctor
 	Space::Space(int left, int top, int width, int height):
 		spaceRect(left, top, width, height),
 		compWithMouseOverIt(nullptr) {}
-	///UI space dtor
+	
 	Space::~Space() {
 		for(const auto& comp : componentList) {
 			delete comp;
@@ -21,7 +20,6 @@ namespace UI {
 		componentList.clear();
 	}
 	
-	//UI component ctor
 	Component::Component(int left, int top, int width, int height):
 		compRect(left, top, width, height) {
 			#ifdef CMAKE_DEBUG
@@ -33,7 +31,6 @@ namespace UI {
 			#endif
 		}
 	
-	///creates new UI::Component inside the space
 	Component* Space::newComponent(int left, int top, int width, int height) {
 		Component* c = new Component(left, top, width, height);
 		componentList.push_back( c );
@@ -60,44 +57,36 @@ namespace UI {
 	
 	// UI::Component listener adders -----------------------------------------
 	
-	///
 	void Component::addMouseOverListener(std::function<void()> callback) {
 		mouseOverListeners.push_back( callback );
 	}
-	///
 	void Component::addMouseEnterListener(std::function<void()> callback) {
 		mouseEnterListeners.push_back( callback );
 	}
-	///
 	void Component::addMouseLeaveListener(std::function<void()> callback) {
 		mouseLeaveListeners.push_back( callback );
 	}
-	///
 	void Component::addClickListener(std::function<void()> callback) {
 		mouseClickListeners.push_back( callback );
 	}
 	
 	// UI::Component events -------------------------------
 	
-	///called when mouse enters the component rectangle
 	void Component::onMouseEnter() {
 		for(const auto& listener : mouseEnterListeners) {
 			listener();
 		}
 	}
-	///called when mouse moves inside the component rectangle
 	void Component::onMouseOver() {
 		for(const auto& listener : mouseOverListeners) {
 			listener();
 		}
 	}
-	///called when mouse leaves the component rectangle
 	void Component::onMouseLeave() {
 		for(const auto& listener : mouseLeaveListeners) {
 			listener();
 		}
 	}
-	///called when mouse clicks on the component rectangle
 	void Component::onClick() {
 		for(const auto& listener : mouseClickListeners) {
 			listener();

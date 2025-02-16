@@ -10,7 +10,6 @@
 
 namespace multimedia {
 	
-	//constexpr unsigned int defaultLineSpacing = 3U;
 	
 	std::string getTheLongestString(std::initializer_list<std::string> aList) {
 		std::string theLongest{""};
@@ -78,7 +77,6 @@ namespace multimedia {
 	
 	Font::Font(TTF_Font* extFont):fontPtr(extFont) {}
 	
-	///move operator
 	Font& Font::operator=(Font&& otherFont) {
 		if( this == &otherFont ) return *this;
 		
@@ -222,7 +220,6 @@ namespace multimedia {
 			bool lineBreak = false;
 			//fill the `oneLine` until it has the maximum amount of characters fiting the `maxWidth`
 			do {
-				//if( !beginingOfLine && textToRender[blankPosition] == '\n' ) break;
 				if( blankPosition != std::string::npos && textToRender[blankPosition] == '\n')
 					lineBreak = true;
 				

@@ -3,7 +3,7 @@
 */
 
 #include "vector.hpp"
-//below to use M_PI constant
+//for M_PI constant
 #define _USE_MATH_DEFINES
 #include <cmath>
 

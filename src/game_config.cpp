@@ -35,28 +35,22 @@ constexpr unsigned int configHeaderLength = 18;
 constexpr char fullscreenBit = 0b00000001;
 constexpr char musicBit = 0b00000010;
 
-///saves config to file
 void GameConfig::save() const {
 	std::ofstream output(filesystem::getConfigurationFile(false), 
 	std::ios::out | std::ios::binary | std::ios::trunc);
 	
-	//save the config header
 	output.write(configHeader, configHeaderLength);
 	
-	//write boolean flags
 	char flags = 0;
 	if( fullscreen ) flags |= fullscreenBit;
 	if( music ) flags |= musicBit;
 	output.write(&flags, 1);
 	
-	//write video mode
 	output.write(reinterpret_cast<const char*>(&video), sizeof(video));
 	
-	//writing done
 	output.close();
 }
 
-///reads config from file
 void GameConfig::read() {
 	std::ifstream source(filesystem::getConfigurationFile(true), std::ios::in | std::ios::binary );
 	if( source.is_open() == false ) return;
@@ -64,20 +58,17 @@ void GameConfig::read() {
 	char testString[configHeaderLength];
 	source.read(testString, configHeaderLength);
 	if( std::strncmp(configHeader, testString,configHeaderLength) != 0 ) {
-		//std::cout << "Not a correct config file" << std::endl;
 		return;
 	}
 	
-	//read boolean config bits
 	char bits;
 	source.read(&bits, 1);
 	
 	fullscreen = ((bits & fullscreenBit) == fullscreenBit);
 	music = ((bits & musicBit) == musicBit);
 	
-	//read video mode
 	source.read(reinterpret_cast<char*>(&video), sizeof(video));
 	
-	//finish reading
 	source.close();
 }
+

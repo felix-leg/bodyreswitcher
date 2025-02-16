@@ -9,7 +9,6 @@
 //include the mulanstring header file
 #include <mulanstring/main.hpp>
 
-//function to initialize the mls
 void mls_init();
 
 #endif /* BRS_MULANSTRING_INSTALL_HPP */

@@ -5,7 +5,7 @@
 
 /**
  * Module for graph template
-*/
+ */
 
 #include <vector>
 #include <algorithm>
@@ -38,7 +38,6 @@ namespace game_math {
 				vertices.clear();
 			};
 			
-			//copy assignment 
 			Graph<GraphElement>& operator=(const Graph<GraphElement>& other) {
 				if( this == &other ) return *this;
 				
@@ -56,7 +55,6 @@ namespace game_math {
 				return *this;
 			};
 			
-			//move assignment
 			Graph<GraphElement>& operator=(Graph<GraphElement>&& other) {
 				if( this == &other ) return *this;
 				
@@ -77,7 +75,7 @@ namespace game_math {
 			bool isConnected(const unsigned int indexA, const unsigned int indexB) const {
 				if( indexA == indexB ) return true;
 				if( indexA >= vertCount ) return false;
-				if( indexA >= vertCount ) return false;
+				if( indexB >= vertCount ) return false;
 				return *getEdge(indexA, indexB);
 			}
 			
@@ -148,7 +146,7 @@ namespace game_math {
 			typename std::vector<GraphElement>::const_iterator cend() const noexcept {
 				return vertices.cend();
 			}
-			//*/
+			
 		private:
 			unsigned int vertCount;
 			std::vector<GraphElement> vertices;

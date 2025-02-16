@@ -17,7 +17,6 @@ namespace animation {
 		NOT_READY
 	};
 	
-	///
 	class AnimationBase {
 		public:
 			virtual AnimationResult applyTime(timePoint time_point) = 0;
@@ -73,9 +72,7 @@ namespace animation {
 	};
 	
 	
-	///animation list
 	std::map<long long, std::unique_ptr<AnimationBase>> pendingAnimations;
-	//long long uniqueReference = 0LL;
 	
 	//functions for adding different types of animations-----------------------------
 	

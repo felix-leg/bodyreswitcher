@@ -152,7 +152,6 @@ namespace game_logic::main_game {
 		) );
 	}
 	
-	///ctor
 	PersonGraph::PersonGraph():
 	r_engine(r_dev())
 	 {
@@ -160,26 +159,22 @@ namespace game_logic::main_game {
 			initializePersonNames();
 	}
 	
-	///dtor
 	PersonGraph::~PersonGraph() {
 		
 	}
 	
-	///
 	void PersonGraph::generateEasyGame() {
 		std::uniform_int_distribution<unsigned int> dist(minimumKidsAmount/2, easyKidsAmount/2);
 		unsigned int result = dist(r_engine) * 2;
 		
 		generateGame(result);
 	}
-	///
 	void PersonGraph::generateNormalGame() {
 		std::uniform_int_distribution<unsigned int> dist(easyKidsAmount/2, normalKidsAmount/2);
 		unsigned int result = dist(r_engine) * 2;
 		
 		generateGame(result);
 	}
-	///
 	void PersonGraph::generateHardGame() {
 		std::uniform_int_distribution<unsigned int> dist(normalKidsAmount/2, maximumKidsAmount/2);
 		unsigned int result = dist(r_engine) * 2;

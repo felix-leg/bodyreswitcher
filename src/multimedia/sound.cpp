@@ -35,7 +35,6 @@ namespace multimedia {
 		Mix_FreeMusic( musicPtr );
 	}
 	
-	///plays the music
 	void Music::play() {
 		if( Mix_PlayMusic( musicPtr, -1/* loop forever */) < 0 ) {//error?
 			ShowError( _("Can't play the music: ").get() , Mix_GetError() );
@@ -44,7 +43,6 @@ namespace multimedia {
 		Mix_VolumeMusic(MIX_MAX_VOLUME / 2);//set music volume to half
 	}
 	
-	///stops the music
 	void Music::stop(int fadeOutInMiliseconds) {
 		if( Mix_PlayingMusic() == 0 ) return;//music is not playing
 		
@@ -55,7 +53,6 @@ namespace multimedia {
 		}
 	}
 	
-	///checks the play state
 	bool Music::isPlaying() const {
 		return Mix_PlayingMusic() == 1;
 	}

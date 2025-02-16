@@ -50,11 +50,8 @@ namespace game_logic::main_game {
 			~PersonGraph();
 			
 			//game generators based of difficulty 
-			///
 			void generateEasyGame();
-			///
 			void generateNormalGame();
-			///
 			void generateHardGame();
 			
 			///generates initial switching pairs
@@ -73,11 +70,8 @@ namespace game_logic::main_game {
 			///test if graph represents winning state
 			bool isFinished() const;
 			
-			///
 			unsigned int getSize() const;
-			///
 			Body& getBodyByIndex(unsigned int n);
-			///
 			unsigned int getIndexOfBody(Body *body);
 		private:
 			///for use in randomization 

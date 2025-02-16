@@ -9,7 +9,6 @@
 
 namespace multimedia {
 
-	///string representation of VideoMode
 	std::string VideoMode::to_string() const {
 		std::ostringstream result;
 		result << width << "×" << height << " ";
@@ -25,7 +24,6 @@ namespace multimedia {
 	
 	//Color class --------------
 	
-	///Color ctor
 	Color::Color(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha):
 		r(red), g(green), b(blue), a(alpha) {}
 	

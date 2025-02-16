@@ -38,7 +38,6 @@ namespace multimedia {
 	Window::Window(std::string title, VideoMode video_mode, bool fullscreen, SDL2_System *system):
 	windowTitle(title),
 	sdlSystem(system) {
-		//set the window
 		uint32_t createFlags = 0;
 		fullscreenState = false;
 		if(fullscreen) {
@@ -58,7 +57,6 @@ namespace multimedia {
 			throw CriticalSDLError();
 		}
 		
-		//get the surface
 		windowSurface = SDL_GetWindowSurface( windowHandle );
 		if( windowSurface == nullptr ) { //error?
 			ShowError( _("Unable to get the surface from the window: ").get() , SDL_GetError() );
@@ -66,9 +64,7 @@ namespace multimedia {
 			throw CriticalSDLError();
 		}
 		
-		//get the window renderer
 		windowRenderer = SDL_CreateSoftwareRenderer( windowSurface );
-		//SDL_CreateRenderer( windowHandle, -1, SDL_RENDERER_ACCELERATED );
 		if( windowRenderer == nullptr ) {//error?
 			ShowError( _("Unable to create window renderer: ").get() , SDL_GetError() );
 			SDL_DestroyWindow( windowHandle );
@@ -117,7 +113,6 @@ namespace multimedia {
 		if( fullscreenState ) {
 			//is fullscreen
 			if( SDL_GetCurrentDisplayMode(0, &mode.source) != 0 ) {
-				//error on geting display mode
 				ShowError( _("Unable to get current display mode: ").get() , SDL_GetError() );
 				return mode;
 			}
@@ -148,7 +143,6 @@ namespace multimedia {
 			flagsToSet = 0;
 		} else {
 			//on
-			//SDL_WINDOW_FULLSCREEN_DESKTOP
 			flagsToSet = SDL_WINDOW_FULLSCREEN;
 		}
 		
@@ -157,16 +151,12 @@ namespace multimedia {
 			return;
 		}
 		fullscreenState = !fullscreenState;
-		//Let the event SDL_WINDOWEVENT_SIZE_CHANGED do this in the main loop ⇓
-		//redrawFlag += 1;
-		//windowSurface = SDL_GetWindowSurface( windowHandle );
 	}
 	
 	void Window::switchToVideoMode(VideoMode mode) {
 		if( fullscreenState ) {
 			//if is fullscreen
 			if( SDL_SetWindowDisplayMode( windowHandle , &mode.source ) != 0 ) {
-				//error while changing mode
 				ShowError( _("Unable to change into display mode '%{mode_text}%': ")
 					.apply("mode_text", mode.to_string()).get() , SDL_GetError() );
 			}
@@ -177,10 +167,9 @@ namespace multimedia {
 		}
 	}
 	
-	///the main game loop
 	void Window::mainLoop() {
 		try{
-			SDL_Event e;//for storing events from the system
+			SDL_Event e;
 			const Uint32 blackFilling = Color(0,0,0).to_rgb(windowSurface->format);
 			int mouseX, mouseY;
 			bool mouseMoved = true;
@@ -197,9 +186,8 @@ namespace multimedia {
 			#endif
 			
 			while( true ) {
-				//gather events from the system
 				while( SDL_PollEvent(&e) != 0 ) {
-					//User request quit
+					
 					if( e.type == SDL_QUIT )
 						throw SignaledGameEnd();
 					
@@ -211,7 +199,6 @@ namespace multimedia {
 							switchFullscreen();
 					}
 					
-					//User moved a mouse
 					if( e.type == SDL_MOUSEMOTION ) {
 						mouseX = e.motion.x;
 						mouseY = e.motion.y;
@@ -220,12 +207,10 @@ namespace multimedia {
 						continue;
 					}
 					
-					//User clicked a mouse button
 					if( e.type == SDL_MOUSEBUTTONUP ) {
 						mouseClicked = true;
 					}
 					
-					//Window changed size
 					if( e.type == SDL_WINDOWEVENT ) {
 						if( e.window.event == SDL_WINDOWEVENT_SIZE_CHANGED ) {
 							windowSurface = SDL_GetWindowSurface( windowHandle );
@@ -246,9 +231,7 @@ namespace multimedia {
 				mouseMoved = false;
 				mouseClicked = false;
 				//:::draw 
-				//fill the screen with black
 				SDL_FillRect( windowSurface, nullptr, blackFilling );
-				//call draw callback
 				if( drawCallback != nullptr ) drawCallback();
 				#ifdef CMAKE_DEBUG
 				Rect r = mousePointer.getSize();
@@ -306,21 +289,17 @@ namespace multimedia {
 	========================= Surface class =======================
 	*/
 
-	//private ctor
 	Surface::Surface(SDL_Surface* new_surface, bool isWindow):
 		surface(new_surface), isWindowSurface(isWindow) {}
 	
-	//empty public ctor
 	Surface::Surface(SDL_Surface* extSurface):surface(extSurface), isWindowSurface(false) {}
 	
-	//public dtor
 	Surface::~Surface() {
 		if( isWindowSurface ) return;//don't remove window surface
 		
 		if( surface != nullptr ) SDL_FreeSurface( surface );
 	}
-	//*
-	//move operator
+	
 	Surface& Surface::operator=(Surface&& other) {
 		if( this == &other ) return *this;
 		if( isWindowSurface || other.isWindowSurface ) {
@@ -333,7 +312,7 @@ namespace multimedia {
 		other.surface = nullptr;
 		
 		return *this;
-	}//*
+	}
 	
 	Surface Surface::fromFile(std::string filename) {
 		filename = filesystem::getDataPath(filename);
@@ -428,10 +407,9 @@ namespace multimedia {
 		return Surface(newSurface, false);
 	}
 	
-	///converts this surface to a pixelformat suitable to draw on other surface
 	bool Surface::optimizeForDrawingOn(Surface otherSurface) {
 		if( isWindowSurface ) return false;//don't optimize window surface
-		if( surface == nullptr ) throw CriticalSDLError();//need some surface
+		if( surface == nullptr ) throw CriticalSDLError();//needs some surface
 		
 		SDL_Surface* optimizedSurface = SDL_ConvertSurface(surface, otherSurface.surface->format, 0);
 		
@@ -446,7 +424,7 @@ namespace multimedia {
 	}
 	
 	Rect Surface::getSize() const {
-		if( surface == nullptr ) throw CriticalSDLError();//need some surface
+		if( surface == nullptr ) throw CriticalSDLError();//needs some surface
 		return Rect{0,0, surface->w, surface->h};
 	}
 	
@@ -465,16 +443,16 @@ namespace multimedia {
 	
 	///draws other surface on this surface, the fastest way
 	void Surface::blit(int x, int y, const Surface& otherSurface) {
-		if( surface == nullptr ) throw CriticalSDLError();//need some surface
+		if( surface == nullptr ) throw CriticalSDLError();//needs some surface
 		if( otherSurface.surface == nullptr ) return;//don't draw empty surface
 		
-		SDL_Rect dest = {x,y,0,0};//width and height are ignored
+		SDL_Rect dest = {x,y,0,0};//width and height are ignored by SDL2
 		
 		SDL_BlitSurface( otherSurface.surface, nullptr, surface, &dest);
 	}
 	
 	void Surface::blit(int x, int y, Rect sourceRect, const Surface& otherSurface) {
-		if( surface == nullptr ) throw CriticalSDLError();//need some surface
+		if( surface == nullptr ) throw CriticalSDLError();//needs some surface
 		if( otherSurface.surface == nullptr ) return;//don't draw empty surface
 		
 		SDL_Rect dest = {x,y,0,0};
@@ -483,13 +461,13 @@ namespace multimedia {
 	}
 	
 	void Surface::fill(Color color) {
-		if( surface == nullptr ) throw CriticalSDLError();//need some surface
+		if( surface == nullptr ) throw CriticalSDLError();//needs some surface
 		SDL_FillRect( surface, nullptr, color.to_rgba(surface->format));
 	}
 	
 	void Surface::crop(Rect cropRect) {
 		if( isWindowSurface ) return;//don't crop window surface
-		if( surface == nullptr ) throw CriticalSDLError();//need some surface
+		if( surface == nullptr ) throw CriticalSDLError();//needs some surface
 		
 		bool hasAlpha = (surface->format->Amask != 0);
 		
@@ -525,7 +503,7 @@ namespace multimedia {
 		scale(factor, factor);
 	}
 	void Surface::scale(double x_factor, double y_factor ) {
-		if( surface == nullptr ) throw CriticalSDLError();//need some surface
+		if( surface == nullptr ) throw CriticalSDLError();//needs some surface
 		
 		Rect newRect = getSize();
 		newRect.setWidth(static_cast<int>(newRect.getWidth() * x_factor));
@@ -535,7 +513,7 @@ namespace multimedia {
 	}
 	void Surface::scale(Rect destRect) {
 		if( isWindowSurface ) return; //don't scale window surface
-		if( surface == nullptr ) throw CriticalSDLError();//need some surface
+		if( surface == nullptr ) throw CriticalSDLError();//needs some surface
 		
 		bool hasAlpha = (surface->format->Amask != 0);
 		

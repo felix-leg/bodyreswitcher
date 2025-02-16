@@ -13,11 +13,8 @@ namespace multimedia {
 			Music(std::string filename);
 			~Music();
 			
-			///
 			void play();
-			///
 			void stop(int fadeOutInMiliseconds = -1);
-			///
 			bool isPlaying() const;
 		private:
 			Mix_Music *musicPtr;
@@ -28,11 +25,8 @@ namespace multimedia {
 			SoundSample(std::string filename);
 			~SoundSample();
 			
-			///
 			void play();
-			///
 			void stop();
-			///
 			bool isPlaying() const;
 		private:
 			Mix_Chunk *soundPtr;

@@ -7,13 +7,11 @@
 #define MULANSTR_USE_GETTEXT
 
 
-//include the library file
 #include <mulanstring/main.cpp>
 
 #include "filesystem.hpp"
 #include <string>
 
-//function to initialize the mls
 void mls_init() {
 	std::string localeDir;
 	localeDir = filesystem::getAssetRoot();

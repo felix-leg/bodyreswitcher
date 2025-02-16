@@ -31,7 +31,6 @@ namespace game_logic {
 		multimedia::SoundSample beepSound{buttonBeepFilename};
 		
 		public:
-			///ctor
 			ButtonTemplate(std::string activeFileName, 
 			std::string inactiveFileName, 
 			double widthPercent,
@@ -57,8 +56,7 @@ namespace game_logic {
 	class Button {
 		public:
 			Button(std::string textOnButton = "", ButtonTemplate *templ = nullptr, UI::Space* clickSpace = nullptr);
-			///move operator
-			//Button& operator=(Button&& other);
+			
 			void onClickHandler(std::function<void()> callback);
 			void assignEvents();
 			

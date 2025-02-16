@@ -7,7 +7,6 @@
 #if __has_include(<windows.h>)
 //MSWIN system
 #define MSWIN_SYSTEM
-//#define NTDDI_VERSION 0x06000000
 #include <windows.h>
 #include <wchar.h>
 #include <initguid.h>
@@ -68,7 +67,6 @@ std::wstring toWString(std::string source) {
 
 namespace filesystem {
 	
-	///returns directory name of given string
 	std::string dirName(std::string path) {
 		std::string::size_type pos = path.find_last_of(
 			#ifdef MSWIN_SYSTEM
@@ -80,7 +78,6 @@ namespace filesystem {
 		return (std::string::npos == pos) ? "" : path.substr(0, pos);
 	}
 	
-	///returns the program's directory
 	std::string getProgramDir() {
 		#ifdef MSWIN_SYSTEM
 		wchar_t result[ MAX_PATH ];
@@ -120,7 +117,6 @@ namespace filesystem {
 		return assets;
 	}
 	
-	///makes a path for the given data name
 	std::string getDataPath(std::string dataName) {
 		#ifdef MSWIN_SYSTEM
 		std::string dataSubDir = std::string("\\data\\");
@@ -130,7 +126,6 @@ namespace filesystem {
 		return getAssetRoot() + dataSubDir + dataName;
 	}
 	
-	///checks if path exists
 	bool pathExists(std::string path) {
 		#ifdef MSWIN_SYSTEM
 		std::wstring W_path = toWString(path);
@@ -142,7 +137,6 @@ namespace filesystem {
 		#endif
 	}
 	
-	///gets path to the configuration file
 	std::string getConfigurationFile(bool createIfNecessary) {
 		std::string home;
 		#ifdef MSWIN_SYSTEM

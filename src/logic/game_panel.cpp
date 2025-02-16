@@ -2,7 +2,7 @@
  * The module with the game "meat"
 */
 
-//below to use M_PI constant
+//for M_PI constant
 #define _USE_MATH_DEFINES
 #include <cmath>
 
@@ -194,7 +194,6 @@ namespace game_logic {
 		void paint(multimedia::Surface &destSurf) {
 			if( repaintFlag->needsRedraw() || firstRedraw ) {
 				auto windowSize = destSurf.getSize();
-				//redrawAssets(windowSize.getWidth(), windowSize.getHeight());
 				redrawAssets(theWindow->getWidth(), theWindow->getHeight());
 				firstRedraw = false;
 			}
@@ -759,7 +758,6 @@ namespace game_logic {
 			
 			auto conn = &connections.back();
 			
-			//play the sound
 			undoSound->play();
 			
 			conn->inAnimation = true;

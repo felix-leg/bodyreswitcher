@@ -8,7 +8,7 @@ namespace game_math {
 	struct Vector {
 		double x;
 		double y;
-		//get value of x as integer
+		
 		int intX() const;
 		int intY() const;
 		
